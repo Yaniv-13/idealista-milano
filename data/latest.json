@@ -1,5 +1,82 @@
 [
   {
+    "id": "34825706",
+    "neighborhood": "San Vittore - Washington",
+    "title": "Flat / apartment in Via Giuseppe Frua, 6, San Vittore - Washington, Milano",
+    "url": "https://www.idealista.it/en/immobile/34825706/",
+    "price_eur": 4000,
+    "price_raw": "4,000\u20ac/month",
+    "rooms": "5",
+    "sqm": "187",
+    "bathrooms": "",
+    "floor": "1st floor",
+    "has_lift": "Yes",
+    "pets_allowed": null,
+    "desc": "De Angelis/via Frua, in an elegant modern building, large four-room apartment comprising double entrance, large living room, dining room/study, eat-in kitchen, three bedrooms, three bathrooms, cellar, and large garage. Three balconies and air conditioning.",
+    "address": "Flat / apartment in Via Giuseppe Frua, 6, San Vittore - Washington, Milano",
+    "lat": 45.4651763,
+    "lng": 9.151552800000001,
+    "commutes": [
+      {
+        "label": "Duomo",
+        "duration_min": 18,
+        "walk_mins": 8,
+        "summary": "18min via Metro 1",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 4min walk \u2192 De Angeli",
+          "\ud83d\ude87 Metro 1 (7 stops): De Angeli -> Duomo",
+          "\ud83d\udeb6 4min walk \u2192 P.za del Duomo"
+        ]
+      },
+      {
+        "label": "Canadian School",
+        "duration_min": 23,
+        "walk_mins": 10,
+        "summary": "23min via Metro 1",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 4min walk \u2192 De Angeli",
+          "\ud83d\ude87 Metro 1 (9 stops): De Angeli -> Palestro",
+          "\ud83d\udeb6 6min walk \u2192 Istituto dei ciechi di milano, Via Vivaio, 7, 20122 Milano MI"
+        ]
+      },
+      {
+        "label": "NABA University",
+        "duration_min": 32,
+        "walk_mins": 14,
+        "summary": "32min via Metro 1 \u2192 Metro 2",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 4min walk \u2192 De Angeli",
+          "\ud83d\ude87 Metro 1 (4 stops): De Angeli -> Cadorna FN",
+          "\ud83d\udeb6 1min walk \u2192 Cadorna FN",
+          "\ud83d\ude87 Metro 2 (4 stops): Cadorna FN -> Romolo",
+          "\ud83d\udeb6 10min walk \u2192 Via Carlo Darwin, 20/22, 20143 Milano MI"
+        ]
+      },
+      {
+        "label": "Malpensa Airport",
+        "duration_min": 76,
+        "walk_mins": 15,
+        "summary": "76min via Metro 1 \u2192 Heavy_Rail RE 54 \u2192 Heavy_Rail RE 51",
+        "passes_filter": null,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 4min walk \u2192 De Angeli",
+          "\ud83d\ude87 Metro 1 (4 stops): De Angeli -> Cadorna FN",
+          "\ud83d\udeb6 3min walk \u2192 Milan Cadorna",
+          "\ud83d\ude8c Heavy_Rail RE 54 (4 stops): Milan Cadorna -> Busto Arsizio",
+          "\ud83d\ude8c Heavy_Rail RE 51 (1 stops): Busto Arsizio -> Ferno-Lonate Pozzolo",
+          "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
+        ]
+      }
+    ]
+  },
+  {
     "id": "34563512",
     "neighborhood": "Zona Sant'Ambrogio - Universit\u00e0 Cattolica",
     "title": "Flat / apartment in Via Lanzone, Zona Sant'Ambrogio - Universit\u00e0 Cattolica, Milano",
@@ -68,6 +145,81 @@
           "\ud83d\ude87 Metro 2 (4 stops): S.Ambrogio -> Garibaldi FS",
           "\ud83d\udeb6 2min walk \u2192 Milano Porta Garibaldi",
           "\ud83d\ude8c Heavy_Rail RE 51 (6 stops): Milano Porta Garibaldi -> Ferno-Lonate Pozzolo",
+          "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "33781207",
+    "neighborhood": "Ariosto - Magenta",
+    "title": "Flat / apartment in Via Mario Pagano, Ariosto - Magenta, Milano",
+    "url": "https://www.idealista.it/en/immobile/33781207/",
+    "price_eur": 5000,
+    "price_raw": "5,000\u20ac/month",
+    "rooms": "7",
+    "sqm": "266",
+    "bathrooms": "3",
+    "floor": "2nd floor",
+    "has_lift": "Yes",
+    "pets_allowed": null,
+    "desc": "Near MM Pagano, in an elegant building undergoing renovation, large apartment on the second floor comprising: grand entrance, furnished eat-in kitchen, double living room, dining room, 5 bedrooms, 3 bathrooms. Air conditioning. Attic and cellar. Request: \u20ac60,000 annual rent if private individual, \u20ac7",
+    "address": "Flat / apartment in Via Mario Pagano, Ariosto - Magenta, Milano",
+    "lat": 45.4696444,
+    "lng": 9.163179,
+    "commutes": [
+      {
+        "label": "Duomo",
+        "duration_min": 14,
+        "walk_mins": 7,
+        "summary": "14min via Metro 1",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 4min walk \u2192 Pagano",
+          "\ud83d\ude87 Metro 1 (5 stops): Pagano -> Duomo",
+          "\ud83d\udeb6 4min walk \u2192 P.za del Duomo"
+        ]
+      },
+      {
+        "label": "Canadian School",
+        "duration_min": 20,
+        "walk_mins": 10,
+        "summary": "20min via Metro 1",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 4min walk \u2192 Pagano",
+          "\ud83d\ude87 Metro 1 (7 stops): Pagano -> Palestro",
+          "\ud83d\udeb6 6min walk \u2192 Istituto dei ciechi di milano, Via Vivaio, 7, 20122 Milano MI"
+        ]
+      },
+      {
+        "label": "NABA University",
+        "duration_min": 33,
+        "walk_mins": 19,
+        "summary": "33min via Tram 10",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 5min walk \u2192 Conciliazione",
+          "\ud83d\ude8a Tram 10 (8 stops): Conciliazione -> Via Vigevano Via Corsico",
+          "\ud83d\udeb6 14min walk \u2192 Via Carlo Darwin, 20/22, 20143 Milano MI"
+        ]
+      },
+      {
+        "label": "Malpensa Airport",
+        "duration_min": 74,
+        "walk_mins": 17,
+        "summary": "74min via Tram 19 \u2192 Heavy_Rail RE 54 \u2192 Heavy_Rail RE 51",
+        "passes_filter": null,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 7min walk \u2192 L.Go Quinto Alpini",
+          "\ud83d\ude8a Tram 19 (5 stops): L.Go Quinto Alpini -> Domodossola Fn",
+          "\ud83d\udeb6 2min walk \u2192 Domodossola",
+          "\ud83d\ude8c Heavy_Rail RE 54 (3 stops): Domodossola -> Busto Arsizio",
+          "\ud83d\ude8c Heavy_Rail RE 51 (1 stops): Busto Arsizio -> Ferno-Lonate Pozzolo",
           "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
         ]
       }
@@ -216,6 +368,231 @@
           "\ud83d\ude87 Metro 2 (5 stops): S. Agostino -> Garibaldi FS",
           "\ud83d\udeb6 2min walk \u2192 Milano Porta Garibaldi",
           "\ud83d\ude8c Heavy_Rail RE 51 (6 stops): Milano Porta Garibaldi -> Ferno-Lonate Pozzolo",
+          "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "34876194",
+    "neighborhood": "Carrobbio - Cinque Vie",
+    "title": "Flat / apartment in Piazza Luigi Vittorio Bertarelli, 2, Carrobbio - Cinque Vie, Milano",
+    "url": "https://www.idealista.it/en/immobile/34876194/",
+    "price_eur": 3500,
+    "price_raw": "3,500\u20ac/month",
+    "rooms": "5",
+    "sqm": "190",
+    "bathrooms": "",
+    "floor": "4th floor",
+    "has_lift": "Yes",
+    "pets_allowed": null,
+    "desc": "We offer for rent a large and exclusive 180 sqm apartment located in one of the most prestigious and sought-after areas of Milan, Piazza Bertarelli, a few steps from the Duomo. The property, characterized by large, elegant, and very bright rooms, with a double entrance, features a large reception do",
+    "address": "Flat / apartment in Piazza Luigi Vittorio Bertarelli, 2, Carrobbio - Cinque Vie, Milano",
+    "lat": 45.4582059,
+    "lng": 9.1871941,
+    "commutes": [
+      {
+        "label": "Duomo",
+        "duration_min": 8,
+        "walk_mins": 5,
+        "summary": "8min via Tram 15",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 4min walk \u2192 Missori",
+          "\ud83d\ude8a Tram 15 (1 stops): Missori -> Duomo",
+          "\ud83d\udeb6 2min walk \u2192 P.za del Duomo"
+        ]
+      },
+      {
+        "label": "Canadian School",
+        "duration_min": 20,
+        "walk_mins": 15,
+        "summary": "20min via Metro M4",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 6min walk \u2192 Santa Sofia",
+          "\ud83d\ude87 Metro M4 (3 stops): Santa Sofia -> Tricolore",
+          "\ud83d\udeb6 8min walk \u2192 Istituto dei ciechi di milano, Via Vivaio, 7, 20122 Milano MI"
+        ]
+      },
+      {
+        "label": "NABA University",
+        "duration_min": 26,
+        "walk_mins": 16,
+        "summary": "26min via Tram 15",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 3min walk \u2192 S.Sofia",
+          "\ud83d\ude8a Tram 15 (5 stops): S.Sofia -> Tibaldi",
+          "\ud83d\udeb6 13min walk \u2192 Via Carlo Darwin, 20/22, 20143 Milano MI"
+        ]
+      },
+      {
+        "label": "Malpensa Airport",
+        "duration_min": 82,
+        "walk_mins": 34,
+        "summary": "82min via Heavy_Rail RE 54 \u2192 Heavy_Rail RE 51 \u26a026min walk",
+        "passes_filter": null,
+        "walk_warning": true,
+        "route_steps": [
+          "\ud83d\udeb6 26min walk \u2192 Milan Cadorna",
+          "\ud83d\ude8c Heavy_Rail RE 54 (4 stops): Milan Cadorna -> Busto Arsizio",
+          "\ud83d\ude8c Heavy_Rail RE 51 (1 stops): Busto Arsizio -> Ferno-Lonate Pozzolo",
+          "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "18401499",
+    "neighborhood": "Palestro - Monforte",
+    "title": "Flat / apartment in Bellini, Palestro - Monforte, Milano",
+    "url": "https://www.idealista.it/en/immobile/18401499/",
+    "price_eur": 4580,
+    "price_raw": "4,580\u20ac/month",
+    "rooms": "5",
+    "sqm": "220",
+    "bathrooms": "",
+    "floor": "1st floor",
+    "has_lift": "Yes",
+    "pets_allowed": null,
+    "desc": "Square FIVE DAYS / CONSERVATORY in an elegant period building with concierge and lift, very quiet APARTMENT (220 SQM), on the first floor, comprising entrance hall, double living room, kitchen with laundry area, THREE bedrooms with THREE bathrooms (one room) is a suite with large bathroom with wardr",
+    "address": "Flat / apartment in Bellini, Palestro - Monforte, Milano",
+    "lat": 45.4670966,
+    "lng": 9.2015166,
+    "commutes": [
+      {
+        "label": "Duomo",
+        "duration_min": 9,
+        "walk_mins": 7,
+        "summary": "9min via Metro 1",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 5min walk \u2192 San Babila",
+          "\ud83d\ude87 Metro 1 (1 stops): San Babila -> Duomo",
+          "\ud83d\udeb6 3min walk \u2192 P.za del Duomo"
+        ]
+      },
+      {
+        "label": "Canadian School",
+        "duration_min": 6,
+        "walk_mins": 6,
+        "summary": "6min via transit",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 6min walk \u2192 Istituto dei ciechi di milano, Via Vivaio, 7, 20122 Milano MI"
+        ]
+      },
+      {
+        "label": "NABA University",
+        "duration_min": 34,
+        "walk_mins": 16,
+        "summary": "34min via Metro 1 \u2192 Metro 2",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 5min walk \u2192 San Babila",
+          "\ud83d\ude87 Metro 1 (4 stops): San Babila -> Cadorna FN",
+          "\ud83d\udeb6 2min walk \u2192 Cadorna FN",
+          "\ud83d\ude87 Metro 2 (4 stops): Cadorna FN -> Romolo",
+          "\ud83d\udeb6 10min walk \u2192 Via Carlo Darwin, 20/22, 20143 Milano MI"
+        ]
+      },
+      {
+        "label": "Malpensa Airport",
+        "duration_min": 75,
+        "walk_mins": 16,
+        "summary": "75min via Metro 1 \u2192 Heavy_Rail RE 54 \u2192 Heavy_Rail RE 51",
+        "passes_filter": null,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 5min walk \u2192 San Babila",
+          "\ud83d\ude87 Metro 1 (4 stops): San Babila -> Cadorna FN",
+          "\ud83d\udeb6 3min walk \u2192 Milan Cadorna",
+          "\ud83d\ude8c Heavy_Rail RE 54 (4 stops): Milan Cadorna -> Busto Arsizio",
+          "\ud83d\ude8c Heavy_Rail RE 51 (1 stops): Busto Arsizio -> Ferno-Lonate Pozzolo",
+          "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "11478613",
+    "neighborhood": "Villa in Fiera",
+    "title": "Villa in Fiera, Milano",
+    "url": "https://www.idealista.it/en/immobile/11478613/",
+    "price_eur": 3300,
+    "price_raw": "3,300\u20ac/month",
+    "rooms": "5",
+    "sqm": "209",
+    "bathrooms": "",
+    "floor": "",
+    "has_lift": "No",
+    "pets_allowed": null,
+    "desc": "Via Monte Rosa. Elegant single-family villa with double entrance (via monte rosa and via monte bianco) composed of garden carriage, mezzanine with hall, semi-convertible kitchen, dining room and bathroom. First floor consists of 3 bedrooms of which the master bedroom with a terrace and two bathrooms",
+    "address": "Villa in Fiera, Milano",
+    "lat": 45.4767546,
+    "lng": 9.148432800000002,
+    "commutes": [
+      {
+        "label": "Duomo",
+        "duration_min": 20,
+        "walk_mins": 10,
+        "summary": "20min via Metro 1",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 6min walk \u2192 Amendola",
+          "\ud83d\ude87 Metro 1 (7 stops): Amendola -> Duomo",
+          "\ud83d\udeb6 4min walk \u2192 P.za del Duomo"
+        ]
+      },
+      {
+        "label": "Canadian School",
+        "duration_min": 26,
+        "walk_mins": 13,
+        "summary": "26min via Metro 1",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 6min walk \u2192 Amendola",
+          "\ud83d\ude87 Metro 1 (9 stops): Amendola -> Palestro",
+          "\ud83d\udeb6 6min walk \u2192 Istituto dei ciechi di milano, Via Vivaio, 7, 20122 Milano MI"
+        ]
+      },
+      {
+        "label": "NABA University",
+        "duration_min": 35,
+        "walk_mins": 17,
+        "summary": "35min via Metro 1 \u2192 Metro 2",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 6min walk \u2192 Amendola",
+          "\ud83d\ude87 Metro 1 (4 stops): Amendola -> Cadorna FN",
+          "\ud83d\udeb6 1min walk \u2192 Cadorna FN",
+          "\ud83d\ude87 Metro 2 (4 stops): Cadorna FN -> Romolo",
+          "\ud83d\udeb6 10min walk \u2192 Via Carlo Darwin, 20/22, 20143 Milano MI"
+        ]
+      },
+      {
+        "label": "Malpensa Airport",
+        "duration_min": 71,
+        "walk_mins": 21,
+        "summary": "71min via Metro 5 \u2192 Heavy_Rail RE 54 \u2192 Heavy_Rail RE 51",
+        "passes_filter": null,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 10min walk \u2192 Lotto",
+          "\ud83d\ude87 Metro 5 (3 stops): Lotto -> Domodossola FN",
+          "\ud83d\udeb6 2min walk \u2192 Domodossola",
+          "\ud83d\ude8c Heavy_Rail RE 54 (3 stops): Domodossola -> Busto Arsizio",
+          "\ud83d\ude8c Heavy_Rail RE 51 (1 stops): Busto Arsizio -> Ferno-Lonate Pozzolo",
           "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
         ]
       }

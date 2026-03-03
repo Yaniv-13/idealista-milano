@@ -30,8 +30,8 @@
       {
         "label": "NABA University",
         "address": "Via Carlo Darwin, 20/22, 20143 Milano MI, Italy",
-        "max_commute_minutes": 30,
-        "max_walk_minutes": 12,
+        "max_commute_minutes": 35,
+        "max_walk_minutes": 15,
         "filter": true
       },
       {
@@ -43,5 +43,5 @@
       }
     ]
   },
-  "scraped_at": "2026-03-03 18:17"
+  "scraped_at": "2026-03-03 18:19"
 }
