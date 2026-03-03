@@ -9,7 +9,7 @@ DATA = ROOT / "data"
 CFG = ROOT / "config.yaml"
 
 def latest_listing_file():
-    files = sorted(DATA.glob("listings_*.json"))
+    files = sorted([p for p in DATA.glob("listings_*.json") if not p.name.endswith(".meta.json")])
     if not files:
         return None
     return files[-1]
