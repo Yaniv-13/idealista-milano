@@ -14,34 +14,34 @@
     "departure_hour": 8,
     "destinations": [
       {
-        "address": "Piazza del Duomo, Milano, Italy",
-        "filter": true,
         "label": "Duomo",
+        "address": "Piazza del Duomo, Milano, Italy",
         "max_commute_minutes": 30,
-        "max_walk_minutes": 12
+        "max_walk_minutes": 12,
+        "filter": true
       },
       {
-        "address": "Via Vivaio, 7, 20122 Milano MI, Italy",
-        "filter": true,
         "label": "Canadian School",
+        "address": "Via Vivaio, 7, 20122 Milano MI, Italy",
         "max_commute_minutes": 30,
-        "max_walk_minutes": 12
+        "max_walk_minutes": 12,
+        "filter": true
       },
       {
-        "address": "Via Carlo Darwin, 20/22, 20143 Milano MI, Italy",
-        "filter": false,
         "label": "NABA University",
+        "address": "Via Carlo Darwin, 20/22, 20143 Milano MI, Italy",
         "max_commute_minutes": 30,
-        "max_walk_minutes": 12
+        "max_walk_minutes": 12,
+        "filter": false
       },
       {
-        "address": "21010 Ferno, Province of Varese, Italy",
-        "filter": false,
         "label": "Malpensa Airport",
+        "address": "21010 Ferno, Province of Varese, Italy",
         "max_commute_minutes": 60,
-        "max_walk_minutes": 12
+        "max_walk_minutes": 12,
+        "filter": false
       }
     ]
   },
-  "scraped_at": "2026-03-03 11:36"
+  "scraped_at": "2026-03-03 17:48"
 }

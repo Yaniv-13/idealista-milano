@@ -964,6 +964,24 @@ def main():
         if filtered:
             log(f"  🚫 Filtered out {filtered} listing(s) exceeding commute limits")
 
+    # ── Save JSON cache for web UI ──────────────────────────────────────────
+    try:
+        data_dir = Path(__file__).resolve().parent / "data"
+        data_dir.mkdir(parents=True, exist_ok=True)
+        date_str = datetime.now().strftime("%Y-%m-%d")
+        json_path = data_dir / f"listings_{date_str}.json"
+        meta_path = data_dir / f"listings_{date_str}.meta.json"
+        with open(json_path, "w") as f:
+            json.dump(all_listings, f, indent=2)
+        with open(meta_path, "w") as f:
+            json.dump({
+                "filters": cfg.get("filters", {}),
+                "commute": cfg.get("commute", {}),
+                "scraped_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
+            }, f, indent=2)
+    except Exception as e:
+        log(f"  ⚠ Could not write JSON cache: {e}", style="yellow")
+
     # ── Write Excel ────────────────────────────────────────────────────────
     log(f"\nWriting Excel → {out_file}")
     write_excel(all_listings, cfg, seen_ids, out_file, destinations=destinations)
