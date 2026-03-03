@@ -55,6 +55,25 @@ try:
     GOOGLE_GEOCODE_KEY = os.environ.get("GOOGLE_GEOCODE_KEY", "") or None
 except Exception:
     GOOGLE_GEOCODE_KEY = None
+
+_GOOGLE_KEY_LOADED = False
+
+def _ensure_google_key_loaded():
+    global GOOGLE_GEOCODE_KEY, _GOOGLE_KEY_LOADED
+    if _GOOGLE_KEY_LOADED:
+        return
+    _GOOGLE_KEY_LOADED = True
+    if GOOGLE_GEOCODE_KEY:
+        return
+    try:
+        cfg_path = Path(__file__).resolve().parent / "config.yaml"
+        if cfg_path.exists():
+            cfg = load_config(str(cfg_path))
+            key = cfg.get("commute", {}).get("google_maps_api_key", "")
+            if key:
+                GOOGLE_GEOCODE_KEY = key
+    except Exception:
+        pass
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
@@ -450,6 +469,7 @@ def _is_good_geocode(res: dict) -> bool:
 
 
 def _google_geocode(query: str) -> tuple:
+    _ensure_google_key_loaded()
     if not HAS_REQUESTS or not GOOGLE_GEOCODE_KEY:
         return None, None
     try:
