@@ -34,17 +34,21 @@ def main():
     latest_meta = meta_for(latest)
     (DATA / "latest.json").write_text(latest.read_text())
 
+    scraped_at = datetime.fromtimestamp(latest.stat().st_mtime).strftime("%Y-%m-%d %H:%M")
+    meta = {}
     if latest_meta.exists():
-        (DATA / "latest.meta.json").write_text(latest_meta.read_text())
-    else:
+        try:
+            meta = json.loads(latest_meta.read_text())
+        except Exception:
+            meta = {}
+    if not meta:
         cfg = load_config()
-        scraped_at = datetime.fromtimestamp(latest.stat().st_mtime).strftime("%Y-%m-%d %H:%M")
         meta = {
             "filters": cfg.get("filters", {}),
             "commute": cfg.get("commute", {}),
-            "scraped_at": scraped_at,
         }
-        (DATA / "latest.meta.json").write_text(json.dumps(meta, indent=2))
+    meta["scraped_at"] = scraped_at
+    (DATA / "latest.meta.json").write_text(json.dumps(meta, indent=2))
 
     print(f"Wrote {DATA / 'latest.json'}")
     print(f"Wrote {DATA / 'latest.meta.json'}")
