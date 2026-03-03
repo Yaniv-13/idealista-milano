@@ -1,0 +1,83 @@
+# ─────────────────────────────────────────────
+#  Idealista Milan Rental Search — Config File
+# ─────────────────────────────────────────────
+
+search:
+  city_slug: "milano-milano"
+  language: "en"                      # "en" for English, "" for Italian
+  operation: "affitto-case"           # affitto-case = rent, vendita-case = buy
+
+filters:
+  max_price: 5000
+  min_price: null
+  # NOTE: In Italy "locali" includes the living room.
+  # 5 locali = 4 bedrooms + 1 living room
+  min_rooms: 5
+  min_bathrooms: 3
+  pets_allowed: true
+  min_sqm: 160
+
+  # Restrict search to specific neighborhoods (optional).
+  # Leave as [] to search all of Milan — commute filter will do the narrowing.
+  #
+  # Sub-area examples:
+  #   porta-vittoria/porta-romana
+  #   porta-vittoria/cinque-giornate-cadore
+  #   porta-vittoria/tribunale-guastalla
+  #   navigli-bocconi/bocconi
+  #   navigli-bocconi/solari-savona
+  #   fiera-de-angeli/san-vittore-washington
+  #   garibaldi-porta-venezia/moscova
+  #   garibaldi-porta-venezia/garibaldi-isola
+  neighborhoods: []
+
+commute:
+  google_maps_api_key: "AIzaSyCngLlliF2yoHi6sHlgyT4fK_Xti5ksUbw"
+
+  include_bus: false          # true = metro + tram + bus, false = metro + tram only
+  departure_hour: 8           # Simulates weekday morning commute (24h, Milan time)
+
+  # ── Commute filter ────────────────────────────────────────────────────────
+  # Listings are KEPT only if ALL destinations below are reachable within
+  # their individual max_commute_minutes AND max_walk_minutes limits.
+  # Set filter: false on any destination to show it in Excel but not filter by it.
+  #
+  # Use address strings OR lat/lng coordinates.
+
+  destinations:
+    - label: "Duomo"
+      address: "Piazza del Duomo, Milano, Italy"
+      max_commute_minutes: 30   # total door-to-door time
+      max_walk_minutes: 12      # max walking per leg (flags ⚠ if exceeded)
+      filter: true              # filter out listings that exceed this limit
+
+    - label: "Canadian School"
+      address: "Via Vivaio, 7, 20122 Milano MI, Italy"
+      max_commute_minutes: 30
+      max_walk_minutes: 12
+      filter: true
+
+    - label: "NABA University"
+      address: "Via Carlo Darwin, 20/22, 20143 Milano MI, Italy"
+      max_commute_minutes: 30
+      max_walk_minutes: 12
+      filter: false
+
+    - label: "Malpensa Airport"
+      address: "21010 Ferno, Province of Varese, Italy"
+      max_commute_minutes: 60
+      max_walk_minutes: 12
+      filter: false
+
+    # Example with coordinates:
+    # - label: "Office"
+    #   lat: 45.4654
+    #   lng: 9.1859
+    #   max_commute_minutes: 35
+    #   max_walk_minutes: 10
+    #   filter: true
+
+output:
+  folder: "/Users/yaniv/dev/Scripts/Idealista/Results"
+  track_new_listings: true
+  seen_listings_file: "seen_listings.json"

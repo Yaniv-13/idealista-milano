@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milano Apartments</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #111314;
+    --surface:   #1a1d1f;
+    --surface2:  #212528;
+    --surface3:  #272b2e;
+    --border:    #2e3336;
+    --border2:   #3a4044;
+    --text:      #dde1e4;
+    --text2:     #bdc5ca;      /* 6.8:1 on --bg */
+    --muted:     #8a9298;      /* 4.6:1 on --bg */
+    --dim:       #9da7ab;      /* 5.1:1 on --bg */
+    --accent:    #d4a96a;      /* warm gold */
+    --accent2:   #7ab3cc;      /* steel blue */
+    --green:     #62a87a;
+    --green-bg:  rgba(98,168,122,0.08);
+    --red:       #c06464;
+    --red-bg:    rgba(192,100,100,0.08);
+    --yellow:    #c4974a;
+    --yellow-bg: rgba(196,151,74,0.08);
+    --new-bg:    #182420;
+    --new-border:#2e4a3a;
+  }
+
+  /* ── Skip navigation (WCAG 2.4.1) ─── */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 8px;
+    background: var(--accent);
+    color: #111314;
+    padding: 8px 16px;
+    border-radius: 0 0 4px 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 9999;
+    text-decoration: none;
+    transition: top 0.15s;
+  }
+  .skip-link:focus { top: 0; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Layout ─────────────────────────────────── */
+  .app { display: flex; height: 100vh; overflow: hidden; }
+
+  .sidebar {
+    width: 310px;
+    min-width: 310px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    display: none;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+  /* ── Sidebar header ─────────────────────────── */
+  .logo {
+    padding: 22px 22px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.01em;
+  }
+
+  .logo p {
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Sidebar sections ───────────────────────── */
+  .section {
+    padding: 18px 22px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .field { margin-bottom: 12px; }
+  .field:last-child { margin-bottom: 0; }
+
+  .field label {
+    display: block;
+    font-size: 14px;
+    color: var(--text2);
+    margin-bottom: 5px;
+    font-weight: 400;
+  }
+
+  .field input, .field select {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    color: var(--text);
+    padding: 8px 11px;
+    border-radius: 5px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.15s, background 0.15s;
+    appearance: none;
+  }
+
+  .field input:focus, .field select:focus {
+    border-color: var(--accent);
+    background: var(--surface3);
+  }
+
+  .field select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236b7478'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 28px;
+    cursor: pointer;
+  }
+
+  .checkbox-field {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    cursor: pointer;
+    margin-top: 2px;
+  }
+
+  .checkbox-field input[type=checkbox] {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    accent-color: var(--accent);
+    cursor: pointer;
+  }
+
+  .checkbox-field span {
+    font-size: 14px;
+    color: var(--text2);
+  }
+
+  /* ── Destination cards ──────────────────────── */
+  .dest-card {
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+  }
+
+  .dest-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--accent2);
+    font-weight: 500;
+    margin-bottom: 4px;
+    letter-spacing: 0.03em;
+  }
+
+  .dest-addr {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .dest-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .dest-row label {
+    font-size: 14px;
+    color: var(--dim);
+    width: 80px;
+    flex-shrink: 0;
+  }
+
+  .dest-row input {
+    flex: 1;
+    background: var(--surface3);
+    border: 1px solid var(--border2);
+    color: var(--text);
+    padding: 6px 9px;
+    border-radius: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    outline: none;
+    width: auto;
+  }
+
+  .dest-row input:focus { border-color: var(--accent); }
+  .dest-row .unit { font-size: 14px; color: var(--muted); }
+
+  .dest-toggle {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    cursor: pointer;
+    margin-top: 2px;
+  }
+
+  .dest-toggle input[type=checkbox] {
+    width: 13px;
+    height: 13px;
+    accent-color: var(--accent);
+    cursor: pointer;
+  }
+
+  .dest-toggle span { font-size: 14px; color: var(--dim); }
+
+  /* ── Buttons ────────────────────────────────── */
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all 0.15s;
+    margin-bottom: 8px;
+  }
+
+  .btn-inline {
+    width: auto;
+    padding: 8px 14px;
+    margin-bottom: 0;
+  }
+
+  .btn:last-child { margin-bottom: 0; }
+
+  .btn-primary { background: var(--accent); color: #111314; }
+  .btn-primary:hover { background: #ddb87a; }
+  .btn-primary:disabled { opacity: 0.35; cursor: not-allowed; }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--accent2);
+    border: 1px solid var(--border2);
+  }
+  .btn-secondary:hover { border-color: var(--accent2); background: rgba(122,179,204,0.06); }
+  .btn-secondary:disabled { opacity: 0.35; cursor: not-allowed; }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--dim);
+    border: 1px solid var(--border);
+    font-size: 14px;
+    padding: 7px 12px;
+  }
+  .btn-ghost:hover { border-color: var(--border2); color: var(--text2); }
+
+  /* ── Scrape panel (inline) ──────────────────── */
+  .scrape-panel {
+    display: none;
+    margin: 0 22px 16px;
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    border-radius: 6px;
+    padding: 16px;
+    animation: fadeIn 0.2s ease;
+  }
+
+  .scrape-panel.visible { display: block; }
+
+  .scrape-panel-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--text2);
+    margin-bottom: 10px;
+    letter-spacing: 0.04em;
+  }
+
+  .scrape-progress {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--dim);
+    margin-bottom: 12px;
+    min-height: 16px;
+    line-height: 1.5;
+  }
+
+  .progress-bar-wrap {
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.4s ease;
+    animation: progress-shimmer 1.5s ease infinite;
+  }
+
+  @keyframes progress-shimmer {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  /* ── CAPTCHA alert ──────────────────────────── */
+  .captcha-alert {
+    display: none;
+    background: rgba(212,169,106,0.07);
+    border: 1px solid rgba(212,169,106,0.35);
+    border-radius: 5px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+  }
+
+  .captcha-alert.visible { display: block; }
+
+  .captcha-alert-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--accent);
+    margin-bottom: 6px;
+    letter-spacing: 0.05em;
+  }
+
+  .captcha-alert p {
+    font-size: 14px;
+    color: var(--text2);
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+
+  /* ── Status bar ─────────────────────────────── */
+  .status-bar {
+    padding: 10px 22px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    background: var(--surface2);
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .status-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--border2);
+    flex-shrink: 0;
+    transition: background 0.3s;
+  }
+
+  .status-dot.running { background: var(--accent); animation: pulse 1s infinite; }
+  .status-dot.done    { background: var(--green); }
+  .status-dot.error   { background: var(--red); }
+
+  #status-text { color: var(--muted); }
+
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.25; } }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:none; } }
+
+  /* ── Topbar ─────────────────────────────────── */
+  .topbar {
+    padding: 13px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--surface);
+    flex-shrink: 0;
+  }
+
+  .topbar-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.01em;
+  }
+
+  .count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .count strong {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 20px;
+    color: var(--accent);
+    margin-right: 3px;
+    font-weight: 700;
+  }
+
+  .count strong + strong { margin-left: 6px; }
+
+.count-inline {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .count-inline strong {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 500;
+    margin-right: 0;
+  }
+
+  .count-inline span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .cache-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    background: var(--green-bg);
+    color: var(--green);
+    border: 1px solid rgba(98,168,122,0.25);
+    letter-spacing: 0.03em;
+  }
+
+  .topbar-right { margin-left: auto; display: flex; align-items: flex-end; gap: 10px; }
+
+  .count-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .copy-btn {
+    background: transparent;
+    border: 1px solid var(--border2);
+    color: var(--dim);
+    padding: 5px 11px;
+    border-radius: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.15s;
+    letter-spacing: 0.03em;
+  }
+
+  .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .sort-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .sort-wrap select {
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    color: var(--text2);
+    padding: 5px 26px 5px 9px;
+    border-radius: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px;
+    outline: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%236b7478'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    cursor: pointer;
+  }
+
+  /* ── Results area ───────────────────────────── */
+  .results-wrap {
+    flex: 1;
+    overflow-y: auto;
+    padding: 18px 24px;
+    scroll-behavior: smooth;
+  }
+
+  /* ── Listing card ───────────────────────────── */
+  .listing-card {
+    background: var(--surface);
+    border: 1.5px solid #4b5257;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .listing-card:hover {
+    border-color: var(--border2);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+  }
+
+  .listing-card.is-new {
+    background: var(--new-bg);
+    border-color: var(--new-border);
+  }
+
+  /* Card header row */
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 14px 18px 12px;
+    border-bottom: 1px solid var(--border);
+    gap: 16px;
+  }
+
+  .card-title-block { flex: 1; min-width: 0; }
+
+  .card-address {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 3px;
+  }
+
+  .card-address a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .card-address a:hover {
+    color: var(--accent2);
+    border-bottom-color: var(--accent2);
+  }
+
+  .new-badge {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    padding: 2px 6px;
+    background: var(--green-bg);
+    color: var(--green);
+    border: 1px solid rgba(98,168,122,0.3);
+    border-radius: 3px;
+    margin-left: 8px;
+    vertical-align: middle;
+    letter-spacing: 0.08em;
+  }
+
+  .card-nbhd {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+
+  .card-price-block { text-align: right; flex-shrink: 0; }
+
+  .price-num {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .price-num.low  { color: var(--green); }
+  .price-num.mid  { color: var(--yellow); }
+  .price-num.high { color: var(--red); }
+
+  .price-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+
+  /* Stats row */
+  .card-stats {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+  }
+
+  .stat {
+    flex: 1;
+    padding: 9px 12px;
+    border-right: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-val {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1;
+  }
+
+  .stat-lbl {
+    display: block;
+    font-size: 14px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 3px;
+  }
+
+  /* Commute rows — one per destination */
+  .commute-rows { border-bottom: 1px solid var(--border); }
+
+  .commute-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 18px;
+    border-bottom: 1px solid var(--border);
+    gap: 14px;
+  }
+
+  .commute-row:last-child { border-bottom: none; }
+
+  .commute-dest-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--accent2);
+    width: 150px;
+    flex-shrink: 0;
+    padding-top: 1px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .commute-right { flex: 1; min-width: 0; }
+
+  .commute-summary {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .commute-summary.fast   { color: var(--green); }
+  .commute-summary.ok     { color: var(--yellow); }
+  .commute-summary.slow   { color: var(--red); }
+  .commute-summary.na     { color: var(--muted); }
+
+  .commute-summary-detail {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--dim);
+    margin: 6px 0 2px;
+  }
+
+  .commute-tag {
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    color: var(--text2);
+    flex-shrink: 0;
+  }
+
+
+  .commute-steps-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .commute-steps-list li {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--dim);
+    line-height: 1.5;
+    padding-left: 2px;
+  }
+
+  .commute-steps {
+    display: none;
+    margin-top: 4px;
+  }
+
+  .commute-steps.open { display: block; }
+
+  .commute-toggle {
+    background: transparent;
+    border: 1px solid var(--border2);
+    color: var(--text2);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .commute-toggle:hover { border-color: var(--accent2); color: var(--accent2); }
+
+  /* Description */
+  .card-desc {
+    padding: 10px 18px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    font-style: italic;
+    border-bottom: none;
+  }
+
+  /* ── Empty / scraping states ────────────────── */
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    gap: 10px;
+    letter-spacing: 0.03em;
+  }
+
+  .empty-icon { font-size: 36px; opacity: 0.2; }
+
+  .scraping-state {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 20px;
+  }
+
+  .scraping-state.visible { display: flex; }
+
+  .scraping-animation {
+    width: 48px;
+    height: 48px;
+    border: 2px solid var(--border2);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    .results-wrap { scroll-behavior: auto; }
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .scraping-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--dim);
+    text-align: center;
+    max-width: 320px;
+    line-height: 1.6;
+  }
+
+  .scraping-label strong {
+    display: block;
+    color: var(--text2);
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+
+  .captcha-inline {
+    display: none;
+    background: rgba(212,169,106,0.05);
+    border: 1px solid rgba(212,169,106,0.3);
+    border-radius: 6px;
+    padding: 20px 24px;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  .captcha-inline.visible { display: block; }
+
+  .captcha-inline h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 15px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .captcha-inline p {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .captcha-inline .btn { width: auto; display: inline-flex; padding: 9px 20px; }
+
+  /* ── Focus visible (WCAG 2.4.7) ───────────────── */
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  /* Remove default outline only when focus-visible is supported */
+  :focus:not(:focus-visible) { outline: none; }
+
+  /* ── Scrollbar ──────────────────────────────── */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+  #cache-note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .footer-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 24px 16px;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .footer-actions .cache-badge {
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 5px;
+  }
+
+  #filter-summary {
+    padding: 0 24px 18px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--dim);
+    line-height: 1.5;
+  }
+
+  #scrape-time {
+    padding: 0 24px 22px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .topbar-right .btn-inline {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .topbar-right .copy-btn {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .sort-wrap select {
+    min-width: 160px;
+  }
+
+  /* ── Responsive ─────────────────────────────── */
+  @media (max-width: 980px) {
+    .app { flex-direction: column; height: auto; min-height: 100vh; }
+    .sidebar { width: 100%; min-width: 0; max-height: 45vh; display: none; }
+    .main { min-height: 55vh; }
+    .topbar { flex-wrap: wrap; gap: 10px; }
+    .topbar-right { width: 100%; justify-content: space-between; }
+    .results-wrap { padding: 14px 16px; }
+  }
+
+  @media (max-width: 600px) {
+    .section { padding: 16px; }
+    .logo { padding: 18px 16px 14px; }
+    .topbar { padding: 12px 16px; }
+    .card-header { flex-direction: column; align-items: flex-start; }
+    .card-price-block { text-align: left; }
+    .commute-summary-rest { display: none; }
+    .listing-card { margin-bottom: 20px; border-radius: 10px; }
+    .card-address { font-size: 16px; }
+    .card-nbhd { font-size: 13px; margin-top: 2px; }
+    .card-price-block { display: flex; align-items: baseline; gap: 10px; }
+    .price-num { font-size: 20px; }
+    .price-sub { font-size: 14px; }
+    .card-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .stat { padding: 10px 8px; }
+    .stat:nth-child(3), .stat:nth-child(6) { border-right: none; }
+    .stat:nth-child(n+4) { border-top: 1px solid var(--border); }
+    .commute-row { flex-direction: column; gap: 8px; }
+    .commute-dest-label { width: auto; }
+    .commute-summary { flex-wrap: wrap; }
+    .commute-toggle { margin-left: auto; }
+  }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="app" aria-label="Milano Apartments Search">
+
+  <!-- ══ SIDEBAR ══════════════════════════════ -->
+  <aside class="sidebar" aria-label="Search filters and controls">
+
+    <div class="logo">
+      <h1>Gruenwald Family- Milano Apartments</h1>
+      <p>idealista.it · Gruenwald filters</p>
+    </div>
+
+    <!-- Listing filters -->
+    <div class="section">
+      <h2 class="section-title" id="filters-heading">Listing Filters</h2>
+
+      <div class="field">
+        <label for="f-max-price">Max Price (€/mo)</label>
+        <input type="number" id="f-max-price" value="5000" step="100">
+      </div>
+
+      <div class="field">
+        <label for="f-min-rooms">Min Rooms (locali)</label>
+        <input type="number" id="f-min-rooms" value="5" min="1" max="10">
+      </div>
+
+      <div class="field">
+        <label for="f-min-sqm">Min Size (m²)</label>
+        <input type="number" id="f-min-sqm" value="170" step="10">
+      </div>
+
+      <label class="checkbox-field" style="margin-top:4px">
+        <input type="checkbox" id="f-pets" checked>
+        <span>Pets allowed only</span>
+      </label>
+
+    </div>
+
+    <!-- Commute destinations -->
+    <div class="section">
+      <h2 class="section-title" id="commute-heading">Commute Destinations</h2>
+      <div id="dest-cards"></div>
+
+      <div class="field" style="margin-top:4px">
+        <label for="f-include-bus">Transit mode</label>
+        <select id="f-include-bus">
+          <option value="false">Metro + tram only</option>
+          <option value="true">Metro + tram + bus</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="section">
+      <h2 class="section-title" id="actions-heading">Actions</h2>
+      <button class="btn btn-secondary" id="btn-filter" onclick="applyFilters()" aria-describedby="cache-note">
+        ⚡ Apply Filters
+      </button>
+      <div id="cache-note"></div>
+    </div>
+
+    <!-- Status -->
+    <div class="status-bar" role="status" aria-live="polite" aria-atomic="true">
+      <div class="status-dot" id="status-dot"></div>
+      <span id="status-text">Ready</span>
+    </div>
+
+  </aside>
+
+  <!-- ══ MAIN ══════════════════════════════════ -->
+  <main class="main" id="main-content" aria-label="Search results">
+
+    <!-- Live region for screen reader announcements -->
+    <div id="sr-announce" aria-live="assertive" aria-atomic="true"
+         style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"></div>
+    <div class="topbar" role="toolbar" aria-label="Results controls">
+      <div class="topbar-title">Gruenwald Family<br>Milano Apartments</div>
+      <div class="topbar-right">
+        <div class="count-stack">
+          <div class="count count-inline">
+            <span><strong id="result-count">—</strong> listings</span>
+          </div>
+          <button class="copy-btn" onclick="copyAll()">📋 Copy All</button>
+        </div>
+        <div class="sort-wrap">
+          <label for="sort-select" style="display:inline">Sort by</label>
+          <select id="sort-select" aria-label="Sort listings" onchange="renderListings()">
+            <option value="commute">Best commute</option>
+            <option value="price">Price ↑</option>
+            <option value="price-desc">Price ↓</option>
+            <option value="sqm">Size ↓</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="results-wrap" id="results-wrap" role="feed" aria-label="Apartment listings" aria-busy="false">
+
+      <!-- Scraping overlay -->
+      <div class="scraping-state" id="scraping-state" role="status" aria-live="polite" aria-label="Loading results">
+        <div class="scraping-animation"></div>
+        <div class="scraping-label">
+          <strong id="scraping-heading">Scraping Idealista…</strong>
+          <span id="scraping-detail">Opening browser</span>
+        </div>
+        <div class="captcha-inline" id="captcha-inline" role="alert" aria-live="assertive">
+          <h3>⚠ CAPTCHA Needed</h3>
+          <p>Idealista is showing a challenge. Solve the slider in the Chrome window that opened, then click below.</p>
+          <button class="btn btn-primary" onclick="captchaSolved()">✓ I solved it</button>
+        </div>
+      </div>
+
+      <!-- Empty state -->
+      <div class="empty-state" id="empty-state">
+        <div class="empty-icon">🏙</div>
+        <div>Apply filters or scrape to see results</div>
+      </div>
+
+      <div id="results-footer">
+        <div class="footer-actions">
+          <div id="cache-badge-wrap"></div>
+          <button class="btn btn-primary btn-inline" id="btn-scrape" onclick="toggleScrapePanel()" aria-expanded="false" aria-controls="scrape-panel">
+            🔍 Scrape Now
+          </button>
+        </div>
+        <div id="filter-summary"></div>
+        <div id="scrape-time"></div>
+      </div>
+
+    </div>
+    <div class="scrape-panel" id="scrape-panel" role="region" aria-labelledby="scrape-heading">
+      <h3 class="scrape-panel-title" id="scrape-heading">SCRAPE SESSION</h3>
+      <div class="captcha-alert" id="captcha-alert" role="alert" aria-live="assertive">
+        <div class="captcha-alert-title">⚠ CAPTCHA REQUIRED</div>
+        <p>Solve the slider in the Chrome window that opened, then click below.</p>
+        <button class="btn btn-primary btn-inline" onclick="captchaSolved()" style="margin-bottom:0;padding:8px 12px;font-size: 14px">
+          ✓ Done, solved it
+        </button>
+      </div>
+      <div class="scrape-progress" id="scrape-progress">Ready to scrape</div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-ghost btn-inline" style="flex:1" onclick="confirmScrape()" id="btn-scrape-confirm">
+          ▶ Start
+        </button>
+        <button class="btn btn-ghost btn-inline" style="flex:1" onclick="toggleScrapePanel()">
+          ✕ Cancel
+        </button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+let _listings = [];
+let _destinations = [];
+let _statusInterval = null;
+let _isScrapingVisible = false;
+let _openRoutes = {};
+let _wasScraping = false;
+let _scrapeMeta = { filters: null, commute: null };
+let _scrapedAt = null;
+
+// ── Init ─────────────────────────────────────────────────────────────
+async function init() {
+  await loadConfig();
+  await checkCache();
+  startStatusPolling();
+
+  // Keyboard: close scrape panel on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && _isScrapingVisible) toggleScrapePanel();
+  });
+}
+
+function announce(msg) {
+  const el = document.getElementById('sr-announce');
+  if (el) { el.textContent = ''; setTimeout(() => el.textContent = msg, 50); }
+}
+
+async function loadConfig() {
+  const res = await fetch('/api/config');
+  const cfg = await res.json();
+
+  if (cfg.filters) {
+    setVal('f-max-price', cfg.filters.max_price || 5000);
+    setVal('f-min-rooms', cfg.filters.min_rooms || 5);
+    setVal('f-min-sqm', cfg.filters.min_sqm || 170);
+    document.getElementById('f-pets').checked = cfg.filters.pets_allowed !== false;
+  }
+
+  if (cfg.commute) {
+    document.getElementById('f-include-bus').value = cfg.commute.include_bus ? 'true' : 'false';
+    _destinations = cfg.commute.destinations || [];
+    renderDestCards();
+  }
+}
+
+function setVal(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.value = val;
+}
+
+async function checkCache() {
+  const res = await fetch('/api/cache-info');
+  const info = await res.json();
+  const note = document.getElementById('cache-note');
+  const badge = document.getElementById('cache-badge-wrap');
+  _scrapeMeta = {
+    filters: info.scrape_filters || null,
+    commute: info.scrape_commute || null,
+  };
+  _scrapedAt = info.scraped_at || null;
+
+  if (info.has_cache) {
+    note.textContent = `✓ cache ${info.date} · ${info.count} total`;
+    badge.innerHTML = `<span class="cache-badge">cached today</span>`;
+    applyFilters();
+  } else {
+    note.textContent = 'No cache for today';
+    badge.innerHTML = '';
+    renderFilterSummary();
+    renderScrapeTime();
+  }
+}
+
+// ── Destination cards ────────────────────────────────────────────────
+function renderDestCards() {
+  const container = document.getElementById('dest-cards');
+  container.innerHTML = '';
+  _destinations.forEach((dest, i) => {
+    const d = document.createElement('div');
+    d.className = 'dest-card';
+    d.innerHTML = `
+      <div class="dest-name">${escHtml(dest.label)}</div>
+      <div class="dest-addr">${escHtml(dest.address || (dest.lat + ', ' + dest.lng))}</div>
+      <div class="dest-row">
+        <label>Max commute</label>
+        <input type="number" class="dest-max-commute" data-i="${i}"
+               value="${dest.max_commute_minutes || 30}" min="5" max="120">
+        <span class="unit">min</span>
+      </div>
+      <div class="dest-row">
+        <label>Max walk</label>
+        <input type="number" class="dest-max-walk" data-i="${i}"
+               value="${dest.max_walk_minutes || 12}" min="1" max="30">
+        <span class="unit">min</span>
+      </div>
+      <label class="dest-toggle">
+        <input type="checkbox" class="dest-filter" data-i="${i}" ${dest.filter ? 'checked' : ''}>
+        <span>Use as filter</span>
+      </label>
+    `;
+    container.appendChild(d);
+  });
+}
+
+function getDestinations() {
+  return _destinations.map((dest, i) => ({
+    ...dest,
+    max_commute_minutes: intVal(`.dest-max-commute[data-i="${i}"]`) || dest.max_commute_minutes,
+    max_walk_minutes:    intVal(`.dest-max-walk[data-i="${i}"]`)    || dest.max_walk_minutes,
+    filter: document.querySelector(`.dest-filter[data-i="${i}"]`)?.checked ?? dest.filter,
+  }));
+}
+
+function getFilters() {
+  return {
+    max_price: intVal('#f-max-price') || null,
+    min_rooms: intVal('#f-min-rooms') || null,
+    min_sqm:   intVal('#f-min-sqm')   || null,
+  };
+}
+
+function formatFilterSet(filters, destinations) {
+  if (!filters) return '—';
+  const parts = [];
+  if (filters.max_price) parts.push(`≤ €${filters.max_price}/mo`);
+  if (filters.min_price) parts.push(`≥ €${filters.min_price}/mo`);
+  if (filters.min_rooms) parts.push(`${filters.min_rooms}+ rooms`);
+  if (filters.min_bathrooms) parts.push(`${filters.min_bathrooms}+ baths`);
+  if (filters.min_sqm) parts.push(`${filters.min_sqm}m²+`);
+  if (filters.pets_allowed) parts.push('pets allowed');
+  const dests = (destinations || []).filter(d => d.filter && d.max_commute_minutes);
+  if (dests.length) {
+    const d = dests.map(d => `${d.label} ≤${d.max_commute_minutes}min`).join(', ');
+    parts.push(`commute: ${d}`);
+  }
+  return parts.length ? parts.join(' · ') : '—';
+}
+
+function renderFilterSummary() {
+  const el = document.getElementById('filter-summary');
+  if (!el) return;
+  const scrapeFilters = _scrapeMeta.filters || null;
+  const scrapeDests = (_scrapeMeta.commute && _scrapeMeta.commute.destinations) ? _scrapeMeta.commute.destinations : [];
+  const currentFilters = getFilters();
+  const currentDests = getDestinations();
+  const scrapeText = formatFilterSet(scrapeFilters, scrapeDests);
+  const currentText = formatFilterSet(currentFilters, currentDests);
+  el.textContent = `Scrape filters: ${scrapeText}  |  Current filters: ${currentText}`;
+}
+
+function renderScrapeTime() {
+  const el = document.getElementById('scrape-time');
+  if (!el) return;
+  el.textContent = _scrapedAt ? `Last scraped: ${_scrapedAt}` : 'Last scraped: —';
+}
+
+function intVal(sel) {
+  const el = typeof sel === 'string' ? document.querySelector(sel) : sel;
+  return el ? (parseInt(el.value) || 0) : 0;
+}
+
+// ── Apply filters ────────────────────────────────────────────────────
+async function applyFilters() {
+  const res = await fetch('/api/listings', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ filters: getFilters(), destinations: getDestinations() })
+  });
+
+  if (!res.ok) {
+    const err = await res.json();
+    setStatus('idle', err.error || 'No cache');
+    showEmpty();
+    return;
+  }
+
+  const data = await res.json();
+  _listings = data.listings;
+  document.getElementById('result-count').textContent = data.total;
+  announce(`${data.total} listings found`);
+
+  const badgeWrap = document.getElementById('cache-badge-wrap');
+  if (data.cached !== data.total) {
+    badgeWrap.innerHTML = `<span class="cache-badge">cached ${data.cached} → filtered ${data.total}</span>`;
+  }
+
+  renderListings();
+  renderFilterSummary();
+  renderScrapeTime();
+}
+
+// ── Scrape panel ─────────────────────────────────────────────────────
+function toggleScrapePanel() {
+  const panel = document.getElementById('scrape-panel');
+  _isScrapingVisible = !_isScrapingVisible;
+  panel.classList.toggle('visible', _isScrapingVisible);
+  document.getElementById('btn-scrape').setAttribute('aria-expanded', _isScrapingVisible);
+
+  // Reset state
+  document.getElementById('scrape-progress').textContent = 'Ready to scrape';
+  document.getElementById('progress-bar').style.width = '0%';
+  document.getElementById('btn-scrape-confirm').disabled = false;
+}
+
+async function confirmScrape() {
+  document.getElementById('btn-scrape-confirm').disabled = true;
+  document.getElementById('scrape-progress').textContent = 'Starting…';
+  document.getElementById('progress-bar').style.width = '10%';
+
+  // Show scraping overlay in main area
+  showScrapingState('Opening browser…');
+
+  const res = await fetch('/api/scrape', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      filters: getFilters(),
+      commute: {
+        include_bus: document.getElementById('f-include-bus').value === 'true',
+        destinations: getDestinations(),
+      }
+    })
+  });
+
+  if (!res.ok) {
+    const err = await res.json();
+    document.getElementById('scrape-progress').textContent = err.error || 'Error';
+    document.getElementById('btn-scrape-confirm').disabled = false;
+    hideScrapingState();
+    return;
+  }
+
+  document.getElementById('btn-filter').disabled = true;
+}
+
+// ── CAPTCHA ──────────────────────────────────────────────────────────
+async function captchaSolved() {
+  await fetch('/api/captcha-solved', { method: 'POST' });
+  document.getElementById('captcha-alert').classList.remove('visible');
+  document.getElementById('captcha-inline').classList.remove('visible');
+}
+
+// ── Status polling ───────────────────────────────────────────────────
+function startStatusPolling() {
+  if (_statusInterval) clearInterval(_statusInterval);
+  _statusInterval = setInterval(pollStatus, 1500);
+}
+
+async function pollStatus() {
+  try {
+    const res = await fetch('/api/status');
+    const state = await res.json();
+    const running = ['scraping','geocoding','commuting'].includes(state.status);
+
+    setStatus(state.status, state.progress);
+
+    // Update scrape panel progress
+    if (_isScrapingVisible || running) {
+      document.getElementById('scrape-progress').textContent = state.progress || state.status;
+      const pct = state.status === 'geocoding' ? 60
+                : state.status === 'commuting' ? 80
+                : state.status === 'done'       ? 100
+                : state.status === 'scraping'   ? 35 : 0;
+      document.getElementById('progress-bar').style.width = pct + '%';
+    }
+
+    // CAPTCHA in both sidebar and main area
+    const showCaptcha = state.captcha_needed;
+    document.getElementById('captcha-alert').classList.toggle('visible', showCaptcha);
+    document.getElementById('captcha-inline').classList.toggle('visible', showCaptcha);
+
+    // Update main scraping overlay
+    if (running) {
+      const headings = {
+        scraping: 'Scraping listings…',
+        geocoding: 'Geocoding addresses…',
+        commuting: 'Calculating commute times…',
+      };
+      showScrapingState(state.progress || '', headings[state.status]);
+    }
+
+    if (running) _wasScraping = true;
+
+    if (state.status === 'done') {
+      document.getElementById('btn-filter').disabled = false;
+      document.getElementById('btn-scrape-confirm').disabled = false;
+      document.getElementById('progress-bar').style.width = '100%';
+
+      // Hide scraping overlay and reload listings
+      setTimeout(() => {
+        hideScrapingState();
+        if (_isScrapingVisible && _wasScraping) toggleScrapePanel();
+        checkCache();
+        _wasScraping = false;
+      }, 800);
+    }
+
+    if (state.status === 'error') {
+      document.getElementById('btn-filter').disabled = false;
+      document.getElementById('btn-scrape-confirm').disabled = false;
+      hideScrapingState();
+      _wasScraping = false;
+    }
+
+  } catch (e) {}
+}
+
+function showScrapingState(detail, heading) {
+  document.getElementById('results-wrap').setAttribute('aria-busy', 'true');
+  document.getElementById('scraping-state').classList.add('visible');
+  document.getElementById('empty-state').style.display = 'none';
+  if (heading) document.getElementById('scraping-heading').textContent = heading;
+  if (detail)  document.getElementById('scraping-detail').textContent = detail;
+  // Hide listings while scraping
+  document.querySelectorAll('.listing-card').forEach(c => c.style.display = 'none');
+}
+
+function hideScrapingState() {
+  document.getElementById('scraping-state').classList.remove('visible');
+  document.getElementById('results-wrap').setAttribute('aria-busy', 'false');
+}
+
+function showEmpty() {
+  document.getElementById('empty-state').style.display = 'flex';
+  document.getElementById('scraping-state').classList.remove('visible');
+}
+
+function setStatus(status, text) {
+  const dot = document.getElementById('status-dot');
+  dot.className = 'status-dot';
+  if (['scraping','geocoding','commuting'].includes(status)) dot.classList.add('running');
+  else if (status === 'done')  dot.classList.add('done');
+  else if (status === 'error') dot.classList.add('error');
+
+  const labels = { idle:'Ready', scraping:'Scraping…', geocoding:'Geocoding…', commuting:'Commutes…', done:'Done', error:'Error' };
+  document.getElementById('status-text').textContent = text || labels[status] || status;
+}
+
+// ── Render listings ──────────────────────────────────────────────────
+function sortListings(listings) {
+  const sort = document.getElementById('sort-select').value;
+  return [...listings].sort((a, b) => {
+    if (sort === 'commute') {
+      const ac = Math.min(...(a.commutes||[]).map(c => c.duration_min ?? 9999), 9999);
+      const bc = Math.min(...(b.commutes||[]).map(c => c.duration_min ?? 9999), 9999);
+      return ac - bc || a.price_eur - b.price_eur;
+    }
+    if (sort === 'price')      return a.price_eur - b.price_eur;
+    if (sort === 'price-desc') return b.price_eur - a.price_eur;
+    if (sort === 'sqm')        return (parseInt(b.sqm)||0) - (parseInt(a.sqm)||0);
+    return 0;
+  });
+}
+
+function renderListings() {
+  const wrap = document.getElementById('results-wrap');
+  const footer = document.getElementById('results-footer');
+
+  // Remove existing cards
+  wrap.querySelectorAll('.listing-card').forEach(c => c.remove());
+
+  if (!_listings.length) {
+    showEmpty();
+    return;
+  }
+
+  document.getElementById('empty-state').style.display = 'none';
+  document.getElementById('scraping-state').classList.remove('visible');
+
+  sortListings(_listings).forEach(l => wrap.insertBefore(buildCard(l), footer));
+}
+
+function buildCard(l) {
+  const price = l.price_eur || 0;
+  const priceClass = price < 3500 ? 'low' : price <= 4500 ? 'mid' : 'high';
+  const displayAddr = (l.title || '').replace(/^(flat|apartment|duplex|penthouse|villa|terraced house|loft)[^i]*in\s+/i, '') || l.title || '—';
+
+  const card = document.createElement('article');
+  card.className = 'listing-card' + (l._is_new ? ' is-new' : '');
+  card.setAttribute('aria-label', `${escHtml(displayAddr)}, ${escHtml(l.neighborhood || '')}, €${price.toLocaleString()} per month`);
+
+  // ── Header ──
+  const header = document.createElement('div');
+  header.className = 'card-header';
+  header.innerHTML = `
+    <div class="card-title-block">
+      <div class="card-address">
+        <a href="${escHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escHtml(displayAddr)}</a>
+        ${l._is_new ? '<span class="new-badge">NEW</span>' : ''}
+      </div>
+      <div class="card-nbhd">${escHtml(l.neighborhood || '—')}</div>
+    </div>
+    <div class="card-price-block">
+      <div class="price-num ${priceClass}">€${price.toLocaleString()}</div>
+      <div class="price-sub">/month</div>
+    </div>
+  `;
+
+  // ── Stats ──
+  const stats = document.createElement('div');
+  stats.className = 'card-stats';
+  const liftColor = l.has_lift === 'Yes' ? 'var(--green)' : 'var(--muted)';
+  stats.innerHTML = `
+    <div class="stat">
+      <span class="stat-val">${escHtml(l.rooms || '—')}</span>
+      <span class="stat-lbl">rooms</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val">${escHtml(l.sqm || '—')}</span>
+      <span class="stat-lbl">m²</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val" style="color:${liftColor}">${l.has_lift === 'Yes' ? '↑ Yes' : 'No'}</span>
+      <span class="stat-lbl">lift</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val">${escHtml(l.bathrooms || l.baths || l.bath || '—')}</span>
+      <span class="stat-lbl">baths</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val" style="font-size: 14px">${escHtml(l.floor || '—')}</span>
+      <span class="stat-lbl">floor</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val">${escHtml(l.pets_allowed === false ? 'No' : 'Yes')}</span>
+      <span class="stat-lbl">pets</span>
+    </div>
+  `;
+
+  // ── Commute rows — one per destination ──
+  const commutes = l.commutes || [];
+  let commuteSection = null;
+
+  if (commutes.length) {
+    commuteSection = document.createElement('div');
+    commuteSection.className = 'commute-rows';
+
+    commutes.forEach(c => {
+      const row = document.createElement('div');
+      row.className = 'commute-row';
+
+      const mins = c.duration_min;
+      const cls = mins == null ? 'na' : mins <= 20 ? 'fast' : mins <= 35 ? 'ok' : 'slow';
+      const clsLabel = cls === 'fast' ? 'Fast' : cls === 'ok' ? 'Ok' : cls === 'slow' ? 'Slow' : 'N/A';
+
+      const steps = (c.route_steps || []);
+      const routeKey = `${l.url || l.title || 'listing'}::${c.label || 'dest'}`;
+      const isOpen = !!_openRoutes[routeKey];
+      const summary = c.summary || 'N/A';
+      const minsMatch = summary.match(/^\s*\d+\s*min/i);
+      const minsText = minsMatch ? minsMatch[0].trim() : summary;
+      const restText = minsMatch ? summary.slice(minsMatch[0].length).trim() : "";
+      const stepsHtml = steps.length
+        ? `<div class="commute-steps${isOpen ? ' open' : ''}" aria-hidden="${!isOpen}">
+             ${restText ? `<div class="commute-summary-detail">${escHtml(restText)}</div>` : ""}
+             <ul class="commute-steps-list">${steps.map(s => `<li>${escHtml(s)}</li>`).join('')}</ul>
+           </div>`
+        : '';
+      const toggleHtml = steps.length
+        ? `<button type="button" class="commute-toggle" aria-expanded="${isOpen}">${isOpen ? 'Hide route' : 'Show route'}</button>`
+        : '';
+
+      row.innerHTML = `
+        <div class="commute-dest-label">${escHtml(c.label)}</div>
+        <div class="commute-right">
+          <div class="commute-summary ${cls}">
+            <span class="commute-summary-mins">${escHtml(minsText)}</span>
+            ${restText ? `<span class="commute-summary-rest">${escHtml(restText)}</span>` : ""}
+            <span class="commute-tag">${clsLabel}</span>
+            ${toggleHtml}
+          </div>
+          ${stepsHtml}
+        </div>
+      `;
+
+      const toggleBtn = row.querySelector('.commute-toggle');
+      if (toggleBtn) {
+        const stepsWrap = row.querySelector('.commute-steps');
+        toggleBtn.addEventListener('click', () => {
+          const isOpen = stepsWrap.classList.toggle('open');
+          toggleBtn.textContent = isOpen ? 'Hide route' : 'Show route';
+          toggleBtn.setAttribute('aria-expanded', String(isOpen));
+          stepsWrap.setAttribute('aria-hidden', String(!isOpen));
+          _openRoutes[routeKey] = isOpen;
+        });
+      }
+
+      commuteSection.appendChild(row);
+    });
+  }
+
+  card.appendChild(header);
+  card.appendChild(stats);
+  if (commuteSection) card.appendChild(commuteSection);
+
+  return card;
+}
+
+// ── Copy all ─────────────────────────────────────────────────────────
+function copyAll() {
+  if (!_listings.length) { alert('No listings to copy'); return; }
+
+  const lines = sortListings(_listings).map((l, i) => {
+    const addr = (l.title||'').replace(/^(flat|apartment|duplex|penthouse|villa|terraced house|loft)[^i]*in\s+/i,'') || l.title;
+    const commuteSummary = (l.commutes||[]).map(c => `${c.label}: ${c.summary||'N/A'}`).join(' | ');
+    return [
+      `#${i+1}  ${addr}`,
+      `  ${l.neighborhood}  ·  €${(l.price_eur||0).toLocaleString()}/mo  ·  ${l.rooms} rooms  ·  ${l.sqm}m²  ·  ${l.has_lift==='Yes'?'lift':'no lift'}  ·  ${l.floor}`,
+      commuteSummary ? `  ${commuteSummary}` : null,
+      `  ${l.url}`,
+    ].filter(Boolean).join('\n');
+  }).join('\n\n');
+
+  navigator.clipboard.writeText(lines).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => btn.textContent = orig, 2000);
+  });
+}
+
+function escHtml(s) {
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+init();
+</script>
+</body>
+</html>
