@@ -413,17 +413,18 @@ def clean_address(raw: str, neighborhood: str = "") -> str:
         return f"{first}, Milano, Italy" if first else ""
     return ', '.join(street_parts) + ', Milano, Italy'
 
-def _geocode_query(query: str) -> tuple:
+def _geocode_query(query: str, bounded: bool = True):
+    params = {"q": query, "format": "json", "limit": 3, "countrycodes": "it"}
+    if bounded:
+        params.update({"bounded": 1, "viewbox": "9.04,45.39,9.28,45.54"})
     r = _requests.get(
         "https://nominatim.openstreetmap.org/search",
-        params={"q": query, "format": "json", "limit": 1,
-                "countrycodes": "it", "bounded": 1,
-                "viewbox": "9.04,45.39,9.28,45.54"},
+        params=params,
         headers={"User-Agent": "Idealista-Milan-Search/1.0"},
         timeout=10,
     )
     results = r.json()
-    return (results[0] if results else None)
+    return results or []
 
 
 def _is_good_geocode(res: dict) -> bool:
@@ -453,17 +454,23 @@ def geocode_address(address: str, neighborhood: str = "") -> tuple:
         if not clean:
             return None, None
         # If clean has a street prefix, try directly first
-        res = _geocode_query(clean)
-        if _is_good_geocode(res):
-            return float(res["lat"]), float(res["lon"])
+        results = _geocode_query(clean, bounded=True)
+        if not results:
+            results = _geocode_query(clean, bounded=False)
+        for res in results:
+            if _is_good_geocode(res):
+                return float(res["lat"]), float(res["lon"])
         # Otherwise, try common street prefixes
         token = clean.split(",")[0].strip()
         prefixes = ["Via", "Corso", "Viale", "Piazza", "Largo", "Galleria", "Strada", "Vicolo", "Alzaia"]
         for p in prefixes:
             q = f"{p} {token}, Milano, Italy"
-            res = _geocode_query(q)
-            if _is_good_geocode(res):
-                return float(res["lat"]), float(res["lon"])
+            results = _geocode_query(q, bounded=True)
+            if not results:
+                results = _geocode_query(q, bounded=False)
+            for res in results:
+                if _is_good_geocode(res):
+                    return float(res["lat"]), float(res["lon"])
         return None, None
     except Exception:
         return None, None
