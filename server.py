@@ -171,7 +171,7 @@ def run_scrape(cfg: dict):
             for listing in all_listings:
                 addr = listing.get("address", "")
                 if addr:
-                    lat, lng = scraper.geocode_address(addr)
+                    lat, lng = scraper.geocode_address(addr, listing.get("neighborhood", ""))
                     listing["lat"] = lat
                     listing["lng"] = lng
                     time.sleep(1.1)

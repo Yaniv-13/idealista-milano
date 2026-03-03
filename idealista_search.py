@@ -386,13 +386,14 @@ def get_listing_coordinates(url: str) -> tuple:
         if not address:
             return None, None
 
-        return geocode_address(address)
+        return geocode_address(address, neighborhood="")
     except Exception:
         return None, None
 
 
-def clean_address(raw: str) -> str:
-    """Strip property type prefix and neighbourhood suffix, leaving just street + number."""
+def clean_address(raw: str, neighborhood: str = "") -> str:
+    """Strip property type prefix and neighbourhood suffix, leaving just street + number.
+    If no street prefix is found, fall back to first token + neighborhood."""
     addr = re.sub(r'^.+?\bin\b\s*', '', raw, flags=re.I).strip()
     parts = [p.strip() for p in addr.split(',')][:-1]  # drop last "Milano"
     street_parts = []
@@ -409,10 +410,14 @@ def clean_address(raw: str) -> str:
     # as a street name to get a best-effort geocode (e.g., "Bellini").
     if not any(re.match(r'^(Via|Corso|Piazza|Viale|Largo|Vicolo|Strada|Galleria|Alzaia)', p, re.I) for p in street_parts):
         first = addr.split(',')[0].strip()
-        return f"{first}, Milano, Italy" if first else ""
+        if not first:
+            return ""
+        nb = neighborhood.strip()
+        nb = f"{nb}, " if nb else ""
+        return f"{first}, {nb}Milano, Italy"
     return ', '.join(street_parts) + ', Milano, Italy'
 
-def geocode_address(address: str) -> tuple:
+def geocode_address(address: str, neighborhood: str = "") -> tuple:
     """Geocode an address using Nominatim (free OpenStreetMap geocoder).
     Cleans the raw Idealista address string before querying.
     Returns (lat, lng) or (None, None).
@@ -420,7 +425,7 @@ def geocode_address(address: str) -> tuple:
     if not HAS_REQUESTS:
         return None, None
     try:
-        clean = clean_address(address)
+        clean = clean_address(address, neighborhood)
         if not clean:
             return None, None
         r = _requests.get(
