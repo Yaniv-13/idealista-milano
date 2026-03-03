@@ -1116,6 +1116,7 @@
 
 <script>
 let _listings = [];
+let _allListings = [];
 let _destinations = [];
 let _statusInterval = null;
 let _isScrapingVisible = false;
@@ -1123,6 +1124,7 @@ let _openRoutes = {};
 let _wasScraping = false;
 let _scrapeMeta = { filters: null, commute: null };
 let _scrapedAt = null;
+let _staticMode = false;
 
 // ── Init ─────────────────────────────────────────────────────────────
 async function init() {
@@ -1142,20 +1144,26 @@ function announce(msg) {
 }
 
 async function loadConfig() {
-  const res = await fetch('/api/config');
-  const cfg = await res.json();
+  try {
+    const res = await fetch('/api/config');
+    if (!res.ok) throw new Error('no api');
+    const cfg = await res.json();
 
-  if (cfg.filters) {
-    setVal('f-max-price', cfg.filters.max_price || 5000);
-    setVal('f-min-rooms', cfg.filters.min_rooms || 5);
-    setVal('f-min-sqm', cfg.filters.min_sqm || 170);
-    document.getElementById('f-pets').checked = cfg.filters.pets_allowed !== false;
-  }
+    if (cfg.filters) {
+      setVal('f-max-price', cfg.filters.max_price || 5000);
+      setVal('f-min-rooms', cfg.filters.min_rooms || 5);
+      setVal('f-min-sqm', cfg.filters.min_sqm || 170);
+      document.getElementById('f-pets').checked = cfg.filters.pets_allowed !== false;
+    }
 
-  if (cfg.commute) {
-    document.getElementById('f-include-bus').value = cfg.commute.include_bus ? 'true' : 'false';
-    _destinations = cfg.commute.destinations || [];
-    renderDestCards();
+    if (cfg.commute) {
+      document.getElementById('f-include-bus').value = cfg.commute.include_bus ? 'true' : 'false';
+      _destinations = cfg.commute.destinations || [];
+      renderDestCards();
+    }
+  } catch (e) {
+    _staticMode = true;
+    await loadStaticMeta();
   }
 }
 
@@ -1165,25 +1173,81 @@ function setVal(id, val) {
 }
 
 async function checkCache() {
-  const res = await fetch('/api/cache-info');
-  const info = await res.json();
-  const note = document.getElementById('cache-note');
-  const badge = document.getElementById('cache-badge-wrap');
-  _scrapeMeta = {
-    filters: info.scrape_filters || null,
-    commute: info.scrape_commute || null,
-  };
-  _scrapedAt = info.scraped_at || null;
+  if (_staticMode) {
+    await loadStaticCache();
+    return;
+  }
+  try {
+    const res = await fetch('/api/cache-info');
+    if (!res.ok) throw new Error('no api');
+    const info = await res.json();
+    const note = document.getElementById('cache-note');
+    const badge = document.getElementById('cache-badge-wrap');
+    _scrapeMeta = {
+      filters: info.scrape_filters || null,
+      commute: info.scrape_commute || null,
+    };
+    _scrapedAt = info.scraped_at || null;
 
-  if (info.has_cache) {
-    note.textContent = `✓ cache ${info.date} · ${info.count} total`;
-    badge.innerHTML = `<span class="cache-badge">cached today</span>`;
-    applyFilters();
-  } else {
-    note.textContent = 'No cache for today';
-    badge.innerHTML = '';
+    if (info.has_cache) {
+      note.textContent = `✓ cache ${info.date} · ${info.count} total`;
+      badge.innerHTML = `<span class="cache-badge">cached today</span>`;
+      applyFilters();
+    } else {
+      note.textContent = 'No cache for today';
+      badge.innerHTML = '';
+      renderFilterSummary();
+      renderScrapeTime();
+    }
+  } catch (e) {
+    _staticMode = true;
+    await loadStaticCache();
+  }
+}
+
+async function loadStaticMeta() {
+  try {
+    const res = await fetch(new URL('data/latest.meta.json', window.location.href), { cache: 'no-store' });
+    if (!res.ok) return;
+    const meta = await res.json();
+    _scrapeMeta = { filters: meta.filters || null, commute: meta.commute || null };
+    _scrapedAt = meta.scraped_at || null;
+    if (_scrapeMeta.filters) {
+      setVal('f-max-price', _scrapeMeta.filters.max_price || 5000);
+      setVal('f-min-rooms', _scrapeMeta.filters.min_rooms || 5);
+      setVal('f-min-sqm', _scrapeMeta.filters.min_sqm || 170);
+      document.getElementById('f-pets').checked = _scrapeMeta.filters.pets_allowed !== false;
+    }
+    if (_scrapeMeta.commute) {
+      document.getElementById('f-include-bus').value = _scrapeMeta.commute.include_bus ? 'true' : 'false';
+      _destinations = _scrapeMeta.commute.destinations || [];
+      renderDestCards();
+    }
+  } catch (e) {}
+}
+
+async function loadStaticCache() {
+  try {
+    const res = await fetch(new URL('data/latest.json', window.location.href), { cache: 'no-store' });
+    if (!res.ok) throw new Error('no data');
+    const data = await res.json();
+    _allListings = data || [];
+    _listings = _allListings;
+    document.getElementById('result-count').textContent = _listings.length;
+    const note = document.getElementById('cache-note');
+    const badge = document.getElementById('cache-badge-wrap');
+    note.textContent = _scrapedAt ? `✓ cache ${_scrapedAt}` : '✓ cache';
+    badge.innerHTML = `<span class="cache-badge">cached latest</span>`;
+    renderListings();
     renderFilterSummary();
     renderScrapeTime();
+    // Disable scrape actions in static mode
+    const scrapeBtn = document.getElementById('btn-scrape');
+    if (scrapeBtn) scrapeBtn.disabled = true;
+    const scrapeConfirm = document.getElementById('btn-scrape-confirm');
+    if (scrapeConfirm) scrapeConfirm.disabled = true;
+  } catch (e) {
+    showEmpty();
   }
 }
 
@@ -1277,6 +1341,10 @@ function intVal(sel) {
 
 // ── Apply filters ────────────────────────────────────────────────────
 async function applyFilters() {
+  if (_staticMode) {
+    applyFiltersLocal();
+    return;
+  }
   const res = await fetch('/api/listings', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -1300,6 +1368,34 @@ async function applyFilters() {
     badgeWrap.innerHTML = `<span class="cache-badge">cached ${data.cached} → filtered ${data.total}</span>`;
   }
 
+  renderListings();
+  renderFilterSummary();
+  renderScrapeTime();
+}
+
+function applyFiltersLocal() {
+  const filters = getFilters();
+  const destinations = getDestinations();
+  let result = _allListings || [];
+  if (filters.max_price) result = result.filter(l => (l.price_eur || 0) <= filters.max_price);
+  if (filters.min_price) result = result.filter(l => (l.price_eur || 0) >= filters.min_price);
+  if (filters.min_rooms) result = result.filter(l => l.rooms && parseInt(l.rooms) >= filters.min_rooms);
+  if (filters.min_sqm) result = result.filter(l => !l.sqm || parseInt(l.sqm) >= filters.min_sqm);
+  destinations.forEach(dest => {
+    if (!dest.filter) return;
+    const label = dest.label;
+    result = result.filter(l => {
+      if (l.lat == null) return true;
+      const commutes = l.commutes || [];
+      const c = commutes.find(x => x.label === label);
+      if (!c || c.passes_filter == null) return true;
+      return c.passes_filter;
+    });
+  });
+  _listings = result;
+  document.getElementById('result-count').textContent = _listings.length;
+  const badgeWrap = document.getElementById('cache-badge-wrap');
+  badgeWrap.innerHTML = `<span class="cache-badge">cached ${(_allListings||[]).length} → filtered ${_listings.length}</span>`;
   renderListings();
   renderFilterSummary();
   renderScrapeTime();
