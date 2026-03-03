@@ -1207,7 +1207,9 @@ async function checkCache() {
 
 async function loadStaticMeta() {
   try {
-    const res = await fetch(new URL('data/latest.meta.json', window.location.href), { cache: 'no-store' });
+    const metaUrl = new URL('data/latest.meta.json', window.location.href);
+    metaUrl.searchParams.set('t', Date.now());
+    const res = await fetch(metaUrl, { cache: 'no-store' });
     if (!res.ok) return;
     const meta = await res.json();
     _scrapeMeta = { filters: meta.filters || null, commute: meta.commute || null };
@@ -1228,7 +1230,9 @@ async function loadStaticMeta() {
 
 async function loadStaticCache() {
   try {
-    const res = await fetch(new URL('data/latest.json', window.location.href), { cache: 'no-store' });
+    const dataUrl = new URL('data/latest.json', window.location.href);
+    dataUrl.searchParams.set('t', Date.now());
+    const res = await fetch(dataUrl, { cache: 'no-store' });
     if (!res.ok) throw new Error('no data');
     const data = await res.json();
     _allListings = data || [];
@@ -1241,6 +1245,7 @@ async function loadStaticCache() {
     renderListings();
     renderFilterSummary();
     renderScrapeTime();
+    if (_listings.length) document.getElementById('empty-state').style.display = 'none';
     // Disable scrape actions in static mode
     const scrapeBtn = document.getElementById('btn-scrape');
     if (scrapeBtn) scrapeBtn.disabled = true;
