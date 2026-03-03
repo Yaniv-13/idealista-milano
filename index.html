@@ -1240,15 +1240,11 @@ async function loadStaticCache() {
     const data = await res.json();
     _allListings = data || [];
     _listings = _allListings;
-    document.getElementById('result-count').textContent = _listings.length;
     const note = document.getElementById('cache-note');
     const badge = document.getElementById('cache-badge-wrap');
     note.textContent = _scrapedAt ? `✓ cache ${_scrapedAt}` : '✓ cache';
     badge.innerHTML = `<span class="cache-badge">cached latest</span>`;
-    renderListings();
-    renderFilterSummary();
-    renderScrapeTime();
-    if (_listings.length) document.getElementById('empty-state').style.display = 'none';
+    applyFiltersLocal();
     // Disable scrape actions in static mode
     const scrapeBtn = document.getElementById('btn-scrape');
     if (scrapeBtn) scrapeBtn.disabled = true;
