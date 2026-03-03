@@ -1,0 +1,47 @@
+{
+  "filters": {
+    "max_price": 5000,
+    "min_price": null,
+    "min_rooms": 5,
+    "min_bathrooms": 3,
+    "pets_allowed": true,
+    "min_sqm": 160,
+    "neighborhoods": []
+  },
+  "commute": {
+    "google_maps_api_key": "AIzaSyCngLlliF2yoHi6sHlgyT4fK_Xti5ksUbw",
+    "include_bus": false,
+    "departure_hour": 8,
+    "destinations": [
+      {
+        "label": "Duomo",
+        "address": "Piazza del Duomo, Milano, Italy",
+        "max_commute_minutes": 30,
+        "max_walk_minutes": 12,
+        "filter": true
+      },
+      {
+        "label": "Canadian School",
+        "address": "Via Vivaio, 7, 20122 Milano MI, Italy",
+        "max_commute_minutes": 30,
+        "max_walk_minutes": 12,
+        "filter": true
+      },
+      {
+        "label": "NABA University",
+        "address": "Via Carlo Darwin, 20/22, 20143 Milano MI, Italy",
+        "max_commute_minutes": 30,
+        "max_walk_minutes": 12,
+        "filter": false
+      },
+      {
+        "label": "Malpensa Airport",
+        "address": "21010 Ferno, Province of Varese, Italy",
+        "max_commute_minutes": 60,
+        "max_walk_minutes": 12,
+        "filter": false
+      }
+    ]
+  },
+  "scraped_at": "2026-03-03 11:36"
+}
