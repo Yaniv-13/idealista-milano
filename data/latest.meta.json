@@ -32,7 +32,7 @@
         "address": "Via Carlo Darwin, 20/22, 20143 Milano MI, Italy",
         "max_commute_minutes": 30,
         "max_walk_minutes": 12,
-        "filter": false
+        "filter": true
       },
       {
         "label": "Malpensa Airport",
@@ -43,5 +43,5 @@
       }
     ]
   },
-  "scraped_at": "2026-03-03 18:11"
+  "scraped_at": "2026-03-03 18:17"
 }
