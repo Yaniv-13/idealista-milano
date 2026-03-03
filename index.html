@@ -9,6 +9,8 @@
 <title>Gruenwald - Milano apartments</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <style>
   :root {
     --bg:        #111314;
@@ -911,6 +913,15 @@
     color: var(--muted);
   }
 
+  #map {
+    height: 320px;
+    margin: 16px 24px 6px;
+    border: 1px solid var(--border2);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--surface2);
+  }
+
   .topbar-right .btn-inline {
     padding: 6px 12px;
     font-size: 14px;
@@ -1058,6 +1069,8 @@
       </div>
     </div>
 
+    <div id="map" aria-label="Map of listings"></div>
+
     <div class="results-wrap" id="results-wrap" role="feed" aria-label="Apartment listings" aria-busy="false">
 
       <!-- Scraping overlay -->
@@ -1117,6 +1130,8 @@
   </main>
 </div>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 let _listings = [];
 let _allListings = [];
@@ -1128,6 +1143,8 @@ let _wasScraping = false;
 let _scrapeMeta = { filters: null, commute: null };
 let _scrapedAt = null;
 let _staticMode = false;
+let _map = null;
+let _markers = [];
 
 // ── Init ─────────────────────────────────────────────────────────────
 async function init() {
@@ -1539,6 +1556,7 @@ function hideScrapingState() {
 function showEmpty() {
   document.getElementById('empty-state').style.display = 'flex';
   document.getElementById('scraping-state').classList.remove('visible');
+  updateMap([]);
 }
 
 function setStatus(status, text) {
@@ -1550,6 +1568,43 @@ function setStatus(status, text) {
 
   const labels = { idle:'Ready', scraping:'Scraping…', geocoding:'Geocoding…', commuting:'Commutes…', done:'Done', error:'Error' };
   document.getElementById('status-text').textContent = text || labels[status] || status;
+}
+
+function ensureMap() {
+  if (_map) return;
+  const el = document.getElementById('map');
+  if (!el || typeof L === 'undefined') return;
+  _map = L.map(el, { zoomControl: true }).setView([45.4642, 9.19], 12);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(_map);
+}
+
+function updateMap(listings) {
+  ensureMap();
+  if (!_map) return;
+  _markers.forEach(m => _map.removeLayer(m));
+  _markers = [];
+  const pts = [];
+  (listings || []).forEach(l => {
+    const lat = l.lat;
+    const lng = l.lng;
+    if (lat == null || lng == null) return;
+    const marker = L.marker([lat, lng]);
+    marker.bindPopup(escHtml(l.title || l.address || 'Listing'));
+    marker.on('click', () => {
+      if (!l.id) return;
+      const el = document.getElementById(`listing-${l.id}`);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    marker.addTo(_map);
+    _markers.push(marker);
+    pts.push([lat, lng]);
+  });
+  if (pts.length) {
+    _map.fitBounds(pts, { padding: [30, 30] });
+  }
 }
 
 // ── Render listings ──────────────────────────────────────────────────
@@ -1584,6 +1639,7 @@ function renderListings() {
   document.getElementById('scraping-state').classList.remove('visible');
 
   sortListings(_listings).forEach(l => wrap.insertBefore(buildCard(l), footer));
+  updateMap(_listings);
 }
 
 function buildCard(l) {
@@ -1593,6 +1649,7 @@ function buildCard(l) {
 
   const card = document.createElement('article');
   card.className = 'listing-card' + (l._is_new ? ' is-new' : '');
+  if (l.id) card.id = `listing-${l.id}`;
   card.setAttribute('aria-label', `${escHtml(displayAddr)}, ${escHtml(l.neighborhood || '')}, €${price.toLocaleString()} per month`);
 
   // ── Header ──
