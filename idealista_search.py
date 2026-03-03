@@ -434,9 +434,13 @@ def clean_address(raw: str, neighborhood: str = "") -> str:
             street_parts.append(p)
     # If we couldn't find a street-like component, fall back to the first token
     # as a street name to get a best-effort geocode (e.g., "Bellini").
+    # Include neighborhood context so the geocoder can disambiguate between
+    # multiple streets sharing the same surname (e.g. Via Vincenzo Bellini vs
+    # Via Roberto Bellini vs Via Gentile Bellini).
     if not any(re.match(r'^(Via|Corso|Piazza|Viale|Largo|Vicolo|Strada|Galleria|Alzaia)', p, re.I) for p in street_parts):
         first = addr.split(',')[0].strip()
-        return f"{first}, Milano, Italy" if first else ""
+        nbhd_suffix = f", {neighborhood}" if neighborhood else ""
+        return f"{first}{nbhd_suffix}, Milano, Italy" if first else ""
     return ', '.join(street_parts) + ', Milano, Italy'
 
 def _geocode_query(query: str, bounded: bool = True):
@@ -509,11 +513,15 @@ def geocode_address(address: str, neighborhood: str = "") -> tuple:
         glat, glng = _google_geocode(clean)
         if glat is not None and glng is not None:
             return glat, glng
-        # Otherwise, try common street prefixes
+        # Otherwise, try common street prefixes.
+        # Include neighborhood context when available so the geocoder picks the
+        # right street in the right area (e.g. "Via Bellini, Palestro - Monforte,
+        # Milano, Italy" → Via Vincenzo Bellini, not Via Gentile Bellini).
         token = clean.split(",")[0].strip()
+        nbhd_suffix = f", {neighborhood}" if neighborhood else ""
         prefixes = ["Via", "Corso", "Viale", "Piazza", "Largo", "Galleria", "Strada", "Vicolo", "Alzaia"]
         for p in prefixes:
-            q = f"{p} {token}, Milano, Italy"
+            q = f"{p} {token}{nbhd_suffix}, Milano, Italy"
             results = _geocode_query(q, bounded=True)
             if not results:
                 results = _geocode_query(q, bounded=False)
@@ -927,7 +935,7 @@ def main():
         for listing in all_listings:
             addr = listing.get("address", "")
             if addr:
-                lat, lng = geocode_address(addr)
+                lat, lng = geocode_address(addr, listing.get("neighborhood", ""))
                 listing["lat"] = lat
                 listing["lng"] = lng
                 time.sleep(1.1)  # Nominatim rate limit: 1 req/sec
