@@ -405,7 +405,12 @@ def clean_address(raw: str) -> str:
         if is_neighbourhood: break
         if is_street or is_number or not street_parts:
             street_parts.append(p)
-    return ', '.join(street_parts) + ', Milano, Italy' if street_parts else addr
+    # If we couldn't find a street-like component, fall back to the first token
+    # as a street name to get a best-effort geocode (e.g., "Bellini").
+    if not any(re.match(r'^(Via|Corso|Piazza|Viale|Largo|Vicolo|Strada|Galleria|Alzaia)', p, re.I) for p in street_parts):
+        first = addr.split(',')[0].strip()
+        return f"{first}, Milano, Italy" if first else ""
+    return ', '.join(street_parts) + ', Milano, Italy'
 
 def geocode_address(address: str) -> tuple:
     """Geocode an address using Nominatim (free OpenStreetMap geocoder).
@@ -416,6 +421,8 @@ def geocode_address(address: str) -> tuple:
         return None, None
     try:
         clean = clean_address(address)
+        if not clean:
+            return None, None
         r = _requests.get(
             "https://nominatim.openstreetmap.org/search",
             params={"q": clean, "format": "json", "limit": 1,
