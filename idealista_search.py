@@ -48,6 +48,13 @@ try:
     HAS_REQUESTS = True
 except ImportError:
     HAS_REQUESTS = False
+
+# ── Google Geocoding (optional) ──────────────────────────────────────────────
+GOOGLE_GEOCODE_KEY = None
+try:
+    GOOGLE_GEOCODE_KEY = os.environ.get("GOOGLE_GEOCODE_KEY", "") or None
+except Exception:
+    GOOGLE_GEOCODE_KEY = None
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
@@ -442,6 +449,24 @@ def _is_good_geocode(res: dict) -> bool:
     return False
 
 
+def _google_geocode(query: str) -> tuple:
+    if not HAS_REQUESTS or not GOOGLE_GEOCODE_KEY:
+        return None, None
+    try:
+        r = _requests.get(
+            "https://maps.googleapis.com/maps/api/geocode/json",
+            params={"address": query, "key": GOOGLE_GEOCODE_KEY, "region": "it"},
+            timeout=10,
+        )
+        data = r.json()
+        if data.get("status") == "OK" and data.get("results"):
+            loc = data["results"][0]["geometry"]["location"]
+            return float(loc["lat"]), float(loc["lng"])
+    except Exception:
+        pass
+    return None, None
+
+
 def geocode_address(address: str, neighborhood: str = "") -> tuple:
     """Geocode an address using Nominatim (free OpenStreetMap geocoder).
     Cleans the raw Idealista address string before querying.
@@ -460,6 +485,10 @@ def geocode_address(address: str, neighborhood: str = "") -> tuple:
         for res in results:
             if _is_good_geocode(res):
                 return float(res["lat"]), float(res["lon"])
+        # Fallback to Google for ambiguous results
+        glat, glng = _google_geocode(clean)
+        if glat is not None and glng is not None:
+            return glat, glng
         # Otherwise, try common street prefixes
         token = clean.split(",")[0].strip()
         prefixes = ["Via", "Corso", "Viale", "Piazza", "Largo", "Galleria", "Strada", "Vicolo", "Alzaia"]
@@ -471,6 +500,9 @@ def geocode_address(address: str, neighborhood: str = "") -> tuple:
             for res in results:
                 if _is_good_geocode(res):
                     return float(res["lat"]), float(res["lon"])
+            glat, glng = _google_geocode(q)
+            if glat is not None and glng is not None:
+                return glat, glng
         return None, None
     except Exception:
         return None, None

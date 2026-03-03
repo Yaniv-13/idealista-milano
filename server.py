@@ -112,6 +112,8 @@ def run_scrape(cfg: dict):
         urls = scraper.build_urls(cfg)
         commute_cfg = cfg.get("commute", {})
         gmaps_key = commute_cfg.get("google_maps_api_key", "")
+        if gmaps_key:
+            os.environ["GOOGLE_GEOCODE_KEY"] = gmaps_key
         destinations = commute_cfg.get("destinations", [])
         dep_hour = commute_cfg.get("departure_hour", 9)
         include_bus = commute_cfg.get("include_bus", False)
