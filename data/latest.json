@@ -151,81 +151,6 @@
     ]
   },
   {
-    "id": "33781207",
-    "neighborhood": "Ariosto - Magenta",
-    "title": "Flat / apartment in Via Mario Pagano, Ariosto - Magenta, Milano",
-    "url": "https://www.idealista.it/en/immobile/33781207/",
-    "price_eur": 5000,
-    "price_raw": "5,000\u20ac/month",
-    "rooms": "7",
-    "sqm": "266",
-    "bathrooms": "3",
-    "floor": "2nd floor",
-    "has_lift": "Yes",
-    "pets_allowed": null,
-    "desc": "Near MM Pagano, in an elegant building undergoing renovation, large apartment on the second floor comprising: grand entrance, furnished eat-in kitchen, double living room, dining room, 5 bedrooms, 3 bathrooms. Air conditioning. Attic and cellar. Request: \u20ac60,000 annual rent if private individual, \u20ac7",
-    "address": "Flat / apartment in Via Mario Pagano, Ariosto - Magenta, Milano",
-    "lat": 45.4696444,
-    "lng": 9.163179,
-    "commutes": [
-      {
-        "label": "Duomo",
-        "duration_min": 14,
-        "walk_mins": 7,
-        "summary": "14min via Metro 1",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 4min walk \u2192 Pagano",
-          "\ud83d\ude87 Metro 1 (5 stops): Pagano -> Duomo",
-          "\ud83d\udeb6 4min walk \u2192 P.za del Duomo"
-        ]
-      },
-      {
-        "label": "Canadian School",
-        "duration_min": 20,
-        "walk_mins": 10,
-        "summary": "20min via Metro 1",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 4min walk \u2192 Pagano",
-          "\ud83d\ude87 Metro 1 (7 stops): Pagano -> Palestro",
-          "\ud83d\udeb6 6min walk \u2192 Istituto dei ciechi di milano, Via Vivaio, 7, 20122 Milano MI"
-        ]
-      },
-      {
-        "label": "NABA University",
-        "duration_min": 33,
-        "walk_mins": 19,
-        "summary": "33min via Tram 10",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 5min walk \u2192 Conciliazione",
-          "\ud83d\ude8a Tram 10 (8 stops): Conciliazione -> Via Vigevano Via Corsico",
-          "\ud83d\udeb6 14min walk \u2192 Via Carlo Darwin, 20/22, 20143 Milano MI"
-        ]
-      },
-      {
-        "label": "Malpensa Airport",
-        "duration_min": 74,
-        "walk_mins": 17,
-        "summary": "74min via Tram 19 \u2192 Heavy_Rail RE 54 \u2192 Heavy_Rail RE 51",
-        "passes_filter": null,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 7min walk \u2192 L.Go Quinto Alpini",
-          "\ud83d\ude8a Tram 19 (5 stops): L.Go Quinto Alpini -> Domodossola Fn",
-          "\ud83d\udeb6 2min walk \u2192 Domodossola",
-          "\ud83d\ude8c Heavy_Rail RE 54 (3 stops): Domodossola -> Busto Arsizio",
-          "\ud83d\ude8c Heavy_Rail RE 51 (1 stops): Busto Arsizio -> Ferno-Lonate Pozzolo",
-          "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
-        ]
-      }
-    ]
-  },
-  {
     "id": "34703513",
     "neighborhood": "Moscova",
     "title": "Flat / apartment in Via San Simpliciano, Nn, Moscova, Milano",
@@ -433,12 +358,14 @@
       {
         "label": "Malpensa Airport",
         "duration_min": 82,
-        "walk_mins": 34,
-        "summary": "82min via Heavy_Rail RE 54 \u2192 Heavy_Rail RE 51 \u26a026min walk",
+        "walk_mins": 24,
+        "summary": "82min via Metro 1 \u2192 Heavy_Rail RE 54 \u2192 Heavy_Rail RE 51 \u26a012min walk",
         "passes_filter": null,
         "walk_warning": true,
         "route_steps": [
-          "\ud83d\udeb6 26min walk \u2192 Milan Cadorna",
+          "\ud83d\udeb6 12min walk \u2192 Duomo",
+          "\ud83d\ude87 Metro 1 (3 stops): Duomo -> Cadorna FN",
+          "\ud83d\udeb6 3min walk \u2192 Milan Cadorna",
           "\ud83d\ude8c Heavy_Rail RE 54 (4 stops): Milan Cadorna -> Busto Arsizio",
           "\ud83d\ude8c Heavy_Rail RE 51 (1 stops): Busto Arsizio -> Ferno-Lonate Pozzolo",
           "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
