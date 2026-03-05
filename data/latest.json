@@ -77,6 +77,80 @@
     ]
   },
   {
+    "id": "34509393",
+    "neighborhood": "Moscova",
+    "title": "Flat / apartment in Corso Garibaldi, 85 /1, Moscova, Milano",
+    "url": "https://www.idealista.it/en/immobile/34509393/",
+    "price_eur": 5000,
+    "price_raw": "5,000\u20ac/month",
+    "rooms": "6",
+    "sqm": "210",
+    "bathrooms": "",
+    "floor": "1st floor",
+    "has_lift": "Yes",
+    "pets_allowed": null,
+    "desc": "SPACIOUS 6-ROOM APARTMENT OF 210 SQM \u2013 CORSO GARIBALDI\nIn the heart of Corso Garibaldi, one of the most sought-after and vibrant areas of Milan, we offer for rent a prestigious apartment of approximately 210 sqm, located on the 1st floor with elevator in an elegant building.\nThe property impresses w",
+    "address": "Flat / apartment in Corso Garibaldi, 85 /1, Moscova, Milano",
+    "lat": 45.4764983,
+    "lng": 9.183502299999999,
+    "commutes": [
+      {
+        "label": "Duomo",
+        "duration_min": 21,
+        "walk_mins": 9,
+        "summary": "21min via Tram 14",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 5min walk \u2192 Arena",
+          "\ud83d\ude8a Tram 14 (4 stops): Arena -> Duomo",
+          "\ud83d\udeb6 4min walk \u2192 P.za del Duomo"
+        ]
+      },
+      {
+        "label": "Canadian School",
+        "duration_min": 29,
+        "walk_mins": 11,
+        "summary": "29min via Metro 2 \u2192 Metro 1",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 3min walk \u2192 Moscova",
+          "\ud83d\ude87 Metro 2 (2 stops): Moscova -> Cadorna FN",
+          "\ud83d\udeb6 1min walk \u2192 Cadorna FN",
+          "\ud83d\ude87 Metro 1 (5 stops): Cadorna FN -> Palestro",
+          "\ud83d\udeb6 6min walk \u2192 Istituto dei ciechi di milano, Via Vivaio, 7, 20122 Milano MI"
+        ]
+      },
+      {
+        "label": "NABA University",
+        "duration_min": 24,
+        "walk_mins": 13,
+        "summary": "24min via Metro 2",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 3min walk \u2192 Moscova",
+          "\ud83d\ude87 Metro 2 (6 stops): Moscova -> Romolo",
+          "\ud83d\udeb6 10min walk \u2192 Via Carlo Darwin, 20/22, 20143 Milano MI"
+        ]
+      },
+      {
+        "label": "Malpensa Airport",
+        "duration_min": 62,
+        "walk_mins": 23,
+        "summary": "62min via Heavy_Rail RE 51 \u26a015min walk",
+        "passes_filter": null,
+        "walk_warning": true,
+        "route_steps": [
+          "\ud83d\udeb6 15min walk \u2192 Milano Porta Garibaldi",
+          "\ud83d\ude8c Heavy_Rail RE 51 (6 stops): Milano Porta Garibaldi -> Ferno-Lonate Pozzolo",
+          "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
+        ]
+      }
+    ]
+  },
+  {
     "id": "34563512",
     "neighborhood": "Zona Sant'Ambrogio - Universit\u00e0 Cattolica",
     "title": "Flat / apartment in Via Lanzone, Zona Sant'Ambrogio - Universit\u00e0 Cattolica, Milano",
@@ -358,14 +432,12 @@
       {
         "label": "Malpensa Airport",
         "duration_min": 82,
-        "walk_mins": 24,
-        "summary": "82min via Metro 1 \u2192 Heavy_Rail RE 54 \u2192 Heavy_Rail RE 51 \u26a012min walk",
+        "walk_mins": 34,
+        "summary": "82min via Heavy_Rail RE 54 \u2192 Heavy_Rail RE 51 \u26a026min walk",
         "passes_filter": null,
         "walk_warning": true,
         "route_steps": [
-          "\ud83d\udeb6 12min walk \u2192 Duomo",
-          "\ud83d\ude87 Metro 1 (3 stops): Duomo -> Cadorna FN",
-          "\ud83d\udeb6 3min walk \u2192 Milan Cadorna",
+          "\ud83d\udeb6 26min walk \u2192 Milan Cadorna",
           "\ud83d\ude8c Heavy_Rail RE 54 (4 stops): Milan Cadorna -> Busto Arsizio",
           "\ud83d\ude8c Heavy_Rail RE 51 (1 stops): Busto Arsizio -> Ferno-Lonate Pozzolo",
           "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
@@ -442,83 +514,6 @@
           "\ud83d\ude87 Metro 1 (4 stops): San Babila -> Cadorna FN",
           "\ud83d\udeb6 3min walk \u2192 Milan Cadorna",
           "\ud83d\ude8c Heavy_Rail RE 54 (4 stops): Milan Cadorna -> Busto Arsizio",
-          "\ud83d\ude8c Heavy_Rail RE 51 (1 stops): Busto Arsizio -> Ferno-Lonate Pozzolo",
-          "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "11478613",
-    "neighborhood": "Villa in Fiera",
-    "title": "Villa in Fiera, Milano",
-    "url": "https://www.idealista.it/en/immobile/11478613/",
-    "price_eur": 3300,
-    "price_raw": "3,300\u20ac/month",
-    "rooms": "5",
-    "sqm": "209",
-    "bathrooms": "",
-    "floor": "",
-    "has_lift": "No",
-    "pets_allowed": null,
-    "desc": "Via Monte Rosa. Elegant single-family villa with double entrance (via monte rosa and via monte bianco) composed of garden carriage, mezzanine with hall, semi-convertible kitchen, dining room and bathroom. First floor consists of 3 bedrooms of which the master bedroom with a terrace and two bathrooms",
-    "address": "Villa in Fiera, Milano",
-    "lat": 45.4767546,
-    "lng": 9.148432800000002,
-    "commutes": [
-      {
-        "label": "Duomo",
-        "duration_min": 20,
-        "walk_mins": 10,
-        "summary": "20min via Metro 1",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 6min walk \u2192 Amendola",
-          "\ud83d\ude87 Metro 1 (7 stops): Amendola -> Duomo",
-          "\ud83d\udeb6 4min walk \u2192 P.za del Duomo"
-        ]
-      },
-      {
-        "label": "Canadian School",
-        "duration_min": 26,
-        "walk_mins": 13,
-        "summary": "26min via Metro 1",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 6min walk \u2192 Amendola",
-          "\ud83d\ude87 Metro 1 (9 stops): Amendola -> Palestro",
-          "\ud83d\udeb6 6min walk \u2192 Istituto dei ciechi di milano, Via Vivaio, 7, 20122 Milano MI"
-        ]
-      },
-      {
-        "label": "NABA University",
-        "duration_min": 35,
-        "walk_mins": 17,
-        "summary": "35min via Metro 1 \u2192 Metro 2",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 6min walk \u2192 Amendola",
-          "\ud83d\ude87 Metro 1 (4 stops): Amendola -> Cadorna FN",
-          "\ud83d\udeb6 1min walk \u2192 Cadorna FN",
-          "\ud83d\ude87 Metro 2 (4 stops): Cadorna FN -> Romolo",
-          "\ud83d\udeb6 10min walk \u2192 Via Carlo Darwin, 20/22, 20143 Milano MI"
-        ]
-      },
-      {
-        "label": "Malpensa Airport",
-        "duration_min": 71,
-        "walk_mins": 21,
-        "summary": "71min via Metro 5 \u2192 Heavy_Rail RE 54 \u2192 Heavy_Rail RE 51",
-        "passes_filter": null,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 10min walk \u2192 Lotto",
-          "\ud83d\ude87 Metro 5 (3 stops): Lotto -> Domodossola FN",
-          "\ud83d\udeb6 2min walk \u2192 Domodossola",
-          "\ud83d\ude8c Heavy_Rail RE 54 (3 stops): Domodossola -> Busto Arsizio",
           "\ud83d\ude8c Heavy_Rail RE 51 (1 stops): Busto Arsizio -> Ferno-Lonate Pozzolo",
           "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
         ]
