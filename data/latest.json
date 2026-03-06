@@ -1,5 +1,153 @@
 [
   {
+    "id": "35061736",
+    "neighborhood": "Moscova",
+    "title": "Flat / apartment in Via San Simpliciano, Nn, Moscova, Milano",
+    "url": "https://www.idealista.it/en/immobile/35061736/",
+    "price_eur": 4835,
+    "price_raw": "4,835\u20ac/month",
+    "rooms": "5",
+    "sqm": "179",
+    "bathrooms": "",
+    "floor": "2nd floor",
+    "has_lift": "Yes",
+    "pets_allowed": null,
+    "desc": "Spacious five-room apartment in Via San Simpliciano\nIn Via San Sempliciano, one of the most sought-after and central streets in Milan, near Brera, we offer for rent a spacious 175 square metre apartment on the second floor of an elegant building. The area stands out for its extraordinary centrality,",
+    "address": "Flat / apartment in Via San Simpliciano, Nn, Moscova, Milano",
+    "lat": 45.472867,
+    "lng": 9.1847506,
+    "commutes": [
+      {
+        "label": "Duomo",
+        "duration_min": 17,
+        "walk_mins": 7,
+        "summary": "17min via Tram 12",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 4min walk \u2192 Lanza",
+          "\ud83d\ude8a Tram 12 (3 stops): Lanza -> Duomo",
+          "\ud83d\udeb6 3min walk \u2192 P.za del Duomo"
+        ]
+      },
+      {
+        "label": "Canadian School",
+        "duration_min": 22,
+        "walk_mins": 16,
+        "summary": "22min via Metro 1",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 10min walk \u2192 Cairoli",
+          "\ud83d\ude87 Metro 1 (4 stops): Cairoli -> Palestro",
+          "\ud83d\udeb6 6min walk \u2192 Istituto dei ciechi di milano, Via Vivaio, 7, 20122 Milano MI"
+        ]
+      },
+      {
+        "label": "NABA University",
+        "duration_min": 22,
+        "walk_mins": 14,
+        "summary": "22min via Metro 2",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 5min walk \u2192 Lanza",
+          "\ud83d\ude87 Metro 2 (5 stops): Lanza -> Romolo",
+          "\ud83d\udeb6 10min walk \u2192 Via Carlo Darwin, 20/22, 20143 Milano MI"
+        ]
+      },
+      {
+        "label": "Malpensa Airport",
+        "duration_min": 66,
+        "walk_mins": 15,
+        "summary": "66min via Metro 2 \u2192 Heavy_Rail RE 51",
+        "passes_filter": null,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 5min walk \u2192 Lanza",
+          "\ud83d\ude87 Metro 2 (2 stops): Lanza -> Garibaldi FS",
+          "\ud83d\udeb6 2min walk \u2192 Milano Porta Garibaldi",
+          "\ud83d\ude8c Heavy_Rail RE 51 (6 stops): Milano Porta Garibaldi -> Ferno-Lonate Pozzolo",
+          "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "35047189",
+    "neighborhood": "San Vittore - Washington",
+    "title": "Flat / apartment in Viale Coni Zugna, 33, San Vittore - Washington, Milano",
+    "url": "https://www.idealista.it/en/immobile/35047189/",
+    "price_eur": 3500,
+    "price_raw": "3,500\u20ac/month",
+    "rooms": "5",
+    "sqm": "165",
+    "bathrooms": "3",
+    "floor": "4th floor",
+    "has_lift": "Yes",
+    "pets_allowed": null,
+    "desc": "Coni Zugna (MM. S. Agostino) Fully renovated and semi-furnished apartment of approx. 165 sqm on the 4th floor with elevator and concierge in a modern, elegant 1960s building. Large entrance hall, double living room, eat-in kitchen (furnished), 4 bedrooms, 3 bathrooms, storage room, 2 balconies, cell",
+    "address": "Flat / apartment in Viale Coni Zugna, 33, San Vittore - Washington, Milano",
+    "lat": 45.4583258,
+    "lng": 9.168116399999999,
+    "commutes": [
+      {
+        "label": "Duomo",
+        "duration_min": 26,
+        "walk_mins": 6,
+        "summary": "26min via Tram 14",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 3min walk \u2192 V.Le Coni Zugna Via Solari",
+          "\ud83d\ude8a Tram 14 (7 stops): V.Le Coni Zugna Via Solari -> Duomo",
+          "\ud83d\udeb6 3min walk \u2192 P.za del Duomo"
+        ]
+      },
+      {
+        "label": "Canadian School",
+        "duration_min": 24,
+        "walk_mins": 13,
+        "summary": "24min via Metro M4",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 5min walk \u2192 Coni Zugna",
+          "\ud83d\ude87 Metro M4 (7 stops): Coni Zugna -> Tricolore",
+          "\ud83d\udeb6 8min walk \u2192 Istituto dei ciechi di milano, Via Vivaio, 7, 20122 Milano MI"
+        ]
+      },
+      {
+        "label": "NABA University",
+        "duration_min": 16,
+        "walk_mins": 13,
+        "summary": "16min via Metro 2",
+        "passes_filter": true,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 3min walk \u2192 S. Agostino",
+          "\ud83d\ude87 Metro 2 (2 stops): S. Agostino -> Romolo",
+          "\ud83d\udeb6 10min walk \u2192 Via Carlo Darwin, 20/22, 20143 Milano MI"
+        ]
+      },
+      {
+        "label": "Malpensa Airport",
+        "duration_min": 70,
+        "walk_mins": 14,
+        "summary": "70min via Metro 2 \u2192 Heavy_Rail RE 51",
+        "passes_filter": null,
+        "walk_warning": false,
+        "route_steps": [
+          "\ud83d\udeb6 3min walk \u2192 S. Agostino",
+          "\ud83d\ude87 Metro 2 (5 stops): S. Agostino -> Garibaldi FS",
+          "\ud83d\udeb6 2min walk \u2192 Milano Porta Garibaldi",
+          "\ud83d\ude8c Heavy_Rail RE 51 (6 stops): Milano Porta Garibaldi -> Ferno-Lonate Pozzolo",
+          "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
+        ]
+      }
+    ]
+  },
+  {
     "id": "34825706",
     "neighborhood": "San Vittore - Washington",
     "title": "Flat / apartment in Via Giuseppe Frua, 6, San Vittore - Washington, Milano",
@@ -71,154 +219,6 @@
           "\ud83d\udeb6 3min walk \u2192 Milan Cadorna",
           "\ud83d\ude8c Heavy_Rail RE 54 (4 stops): Milan Cadorna -> Busto Arsizio",
           "\ud83d\ude8c Heavy_Rail RE 51 (1 stops): Busto Arsizio -> Ferno-Lonate Pozzolo",
-          "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "34509393",
-    "neighborhood": "Moscova",
-    "title": "Flat / apartment in Corso Garibaldi, 85 /1, Moscova, Milano",
-    "url": "https://www.idealista.it/en/immobile/34509393/",
-    "price_eur": 5000,
-    "price_raw": "5,000\u20ac/month",
-    "rooms": "6",
-    "sqm": "210",
-    "bathrooms": "",
-    "floor": "1st floor",
-    "has_lift": "Yes",
-    "pets_allowed": null,
-    "desc": "SPACIOUS 6-ROOM APARTMENT OF 210 SQM \u2013 CORSO GARIBALDI\nIn the heart of Corso Garibaldi, one of the most sought-after and vibrant areas of Milan, we offer for rent a prestigious apartment of approximately 210 sqm, located on the 1st floor with elevator in an elegant building.\nThe property impresses w",
-    "address": "Flat / apartment in Corso Garibaldi, 85 /1, Moscova, Milano",
-    "lat": 45.4764983,
-    "lng": 9.183502299999999,
-    "commutes": [
-      {
-        "label": "Duomo",
-        "duration_min": 21,
-        "walk_mins": 9,
-        "summary": "21min via Tram 14",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 5min walk \u2192 Arena",
-          "\ud83d\ude8a Tram 14 (4 stops): Arena -> Duomo",
-          "\ud83d\udeb6 4min walk \u2192 P.za del Duomo"
-        ]
-      },
-      {
-        "label": "Canadian School",
-        "duration_min": 29,
-        "walk_mins": 11,
-        "summary": "29min via Metro 2 \u2192 Metro 1",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 3min walk \u2192 Moscova",
-          "\ud83d\ude87 Metro 2 (2 stops): Moscova -> Cadorna FN",
-          "\ud83d\udeb6 1min walk \u2192 Cadorna FN",
-          "\ud83d\ude87 Metro 1 (5 stops): Cadorna FN -> Palestro",
-          "\ud83d\udeb6 6min walk \u2192 Istituto dei ciechi di milano, Via Vivaio, 7, 20122 Milano MI"
-        ]
-      },
-      {
-        "label": "NABA University",
-        "duration_min": 24,
-        "walk_mins": 13,
-        "summary": "24min via Metro 2",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 3min walk \u2192 Moscova",
-          "\ud83d\ude87 Metro 2 (6 stops): Moscova -> Romolo",
-          "\ud83d\udeb6 10min walk \u2192 Via Carlo Darwin, 20/22, 20143 Milano MI"
-        ]
-      },
-      {
-        "label": "Malpensa Airport",
-        "duration_min": 62,
-        "walk_mins": 23,
-        "summary": "62min via Heavy_Rail RE 51 \u26a015min walk",
-        "passes_filter": null,
-        "walk_warning": true,
-        "route_steps": [
-          "\ud83d\udeb6 15min walk \u2192 Milano Porta Garibaldi",
-          "\ud83d\ude8c Heavy_Rail RE 51 (6 stops): Milano Porta Garibaldi -> Ferno-Lonate Pozzolo",
-          "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "34563512",
-    "neighborhood": "Zona Sant'Ambrogio - Universit\u00e0 Cattolica",
-    "title": "Flat / apartment in Via Lanzone, Zona Sant'Ambrogio - Universit\u00e0 Cattolica, Milano",
-    "url": "https://www.idealista.it/en/immobile/34563512/",
-    "price_eur": 3340,
-    "price_raw": "3,340\u20ac/month",
-    "rooms": "7",
-    "sqm": "240",
-    "bathrooms": "",
-    "floor": "2nd floor",
-    "has_lift": "Yes",
-    "pets_allowed": null,
-    "desc": "NEGOTIATIONS UNDERWAY, SANT'AMBROGIO AREA in an elegant modern building, with double elevators and concierge, we offer an apartment located on the second floor. The apartment, unique on the floor, consists of a large entrance hall, double living room, dining room, eat-in kitchen with balcony and ser",
-    "address": "Flat / apartment in Via Lanzone, Zona Sant'Ambrogio - Universit\u00e0 Cattolica, Milano",
-    "lat": 45.4612631,
-    "lng": 9.1750528,
-    "commutes": [
-      {
-        "label": "Duomo",
-        "duration_min": 20,
-        "walk_mins": 11,
-        "summary": "20min via Tram 16",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 8min walk \u2192 L.Go D'ancona",
-          "\ud83d\ude8a Tram 16 (4 stops): L.Go D'ancona -> Duomo",
-          "\ud83d\udeb6 3min walk \u2192 P.za del Duomo"
-        ]
-      },
-      {
-        "label": "Canadian School",
-        "duration_min": 20,
-        "walk_mins": 12,
-        "summary": "20min via Metro M4",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 3min walk \u2192 S. Ambrogio",
-          "\ud83d\ude87 Metro M4 (6 stops): S. Ambrogio -> Tricolore",
-          "\ud83d\udeb6 8min walk \u2192 Istituto dei ciechi di milano, Via Vivaio, 7, 20122 Milano MI"
-        ]
-      },
-      {
-        "label": "NABA University",
-        "duration_min": 18,
-        "walk_mins": 12,
-        "summary": "18min via Metro 2",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 3min walk \u2192 S.Ambrogio",
-          "\ud83d\ude87 Metro 2 (3 stops): S.Ambrogio -> Romolo",
-          "\ud83d\udeb6 10min walk \u2192 Via Carlo Darwin, 20/22, 20143 Milano MI"
-        ]
-      },
-      {
-        "label": "Malpensa Airport",
-        "duration_min": 69,
-        "walk_mins": 13,
-        "summary": "69min via Metro 2 \u2192 Heavy_Rail RE 51",
-        "passes_filter": null,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 3min walk \u2192 S.Ambrogio",
-          "\ud83d\ude87 Metro 2 (4 stops): S.Ambrogio -> Garibaldi FS",
-          "\ud83d\udeb6 2min walk \u2192 Milano Porta Garibaldi",
-          "\ud83d\ude8c Heavy_Rail RE 51 (6 stops): Milano Porta Garibaldi -> Ferno-Lonate Pozzolo",
           "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
         ]
       }
@@ -367,79 +367,6 @@
           "\ud83d\ude87 Metro 2 (5 stops): S. Agostino -> Garibaldi FS",
           "\ud83d\udeb6 2min walk \u2192 Milano Porta Garibaldi",
           "\ud83d\ude8c Heavy_Rail RE 51 (6 stops): Milano Porta Garibaldi -> Ferno-Lonate Pozzolo",
-          "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "34876194",
-    "neighborhood": "Carrobbio - Cinque Vie",
-    "title": "Flat / apartment in Piazza Luigi Vittorio Bertarelli, 2, Carrobbio - Cinque Vie, Milano",
-    "url": "https://www.idealista.it/en/immobile/34876194/",
-    "price_eur": 3500,
-    "price_raw": "3,500\u20ac/month",
-    "rooms": "5",
-    "sqm": "190",
-    "bathrooms": "",
-    "floor": "4th floor",
-    "has_lift": "Yes",
-    "pets_allowed": null,
-    "desc": "We offer for rent a large and exclusive 180 sqm apartment located in one of the most prestigious and sought-after areas of Milan, Piazza Bertarelli, a few steps from the Duomo. The property, characterized by large, elegant, and very bright rooms, with a double entrance, features a large reception do",
-    "address": "Flat / apartment in Piazza Luigi Vittorio Bertarelli, 2, Carrobbio - Cinque Vie, Milano",
-    "lat": 45.4582059,
-    "lng": 9.1871941,
-    "commutes": [
-      {
-        "label": "Duomo",
-        "duration_min": 8,
-        "walk_mins": 5,
-        "summary": "8min via Tram 15",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 4min walk \u2192 Missori",
-          "\ud83d\ude8a Tram 15 (1 stops): Missori -> Duomo",
-          "\ud83d\udeb6 2min walk \u2192 P.za del Duomo"
-        ]
-      },
-      {
-        "label": "Canadian School",
-        "duration_min": 20,
-        "walk_mins": 15,
-        "summary": "20min via Metro M4",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 6min walk \u2192 Santa Sofia",
-          "\ud83d\ude87 Metro M4 (3 stops): Santa Sofia -> Tricolore",
-          "\ud83d\udeb6 8min walk \u2192 Istituto dei ciechi di milano, Via Vivaio, 7, 20122 Milano MI"
-        ]
-      },
-      {
-        "label": "NABA University",
-        "duration_min": 26,
-        "walk_mins": 16,
-        "summary": "26min via Tram 15",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 3min walk \u2192 S.Sofia",
-          "\ud83d\ude8a Tram 15 (5 stops): S.Sofia -> Tibaldi",
-          "\ud83d\udeb6 13min walk \u2192 Via Carlo Darwin, 20/22, 20143 Milano MI"
-        ]
-      },
-      {
-        "label": "Malpensa Airport",
-        "duration_min": 82,
-        "walk_mins": 34,
-        "summary": "82min via Heavy_Rail RE 54 \u2192 Heavy_Rail RE 51 \u26a026min walk",
-        "passes_filter": null,
-        "walk_warning": true,
-        "route_steps": [
-          "\ud83d\udeb6 26min walk \u2192 Milan Cadorna",
-          "\ud83d\ude8c Heavy_Rail RE 54 (4 stops): Milan Cadorna -> Busto Arsizio",
-          "\ud83d\ude8c Heavy_Rail RE 51 (1 stops): Busto Arsizio -> Ferno-Lonate Pozzolo",
           "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
         ]
       }
