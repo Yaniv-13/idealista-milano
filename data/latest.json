@@ -106,9 +106,9 @@
       },
       {
         "label": "Canadian School",
-        "duration_min": 24,
+        "duration_min": 23,
         "walk_mins": 13,
-        "summary": "24min via Metro M4",
+        "summary": "23min via Metro M4",
         "passes_filter": true,
         "walk_warning": false,
         "route_steps": [
@@ -319,12 +319,12 @@
       {
         "label": "Duomo",
         "duration_min": 23,
-        "walk_mins": 14,
+        "walk_mins": 15,
         "summary": "23min via Metro M4",
         "passes_filter": true,
         "walk_warning": false,
         "route_steps": [
-          "\ud83d\udeb6 4min walk \u2192 Coni Zugna",
+          "\ud83d\udeb6 5min walk \u2192 Coni Zugna",
           "\ud83d\ude87 Metro M4 (6 stops): Coni Zugna -> San Babila",
           "\ud83d\udeb6 10min walk \u2192 P.za del Duomo"
         ]
@@ -337,7 +337,7 @@
         "passes_filter": true,
         "walk_warning": false,
         "route_steps": [
-          "\ud83d\udeb6 4min walk \u2192 Coni Zugna",
+          "\ud83d\udeb6 5min walk \u2192 Coni Zugna",
           "\ud83d\ude87 Metro M4 (7 stops): Coni Zugna -> Tricolore",
           "\ud83d\udeb6 8min walk \u2192 Istituto dei ciechi di milano, Via Vivaio, 7, 20122 Milano MI"
         ]
@@ -431,9 +431,9 @@
       },
       {
         "label": "Malpensa Airport",
-        "duration_min": 75,
+        "duration_min": 76,
         "walk_mins": 16,
-        "summary": "75min via Metro 1 \u2192 Heavy_Rail RE 54 \u2192 Heavy_Rail RE 51",
+        "summary": "76min via Metro 1 \u2192 Heavy_Rail RE 54 \u2192 Heavy_Rail RE 51",
         "passes_filter": null,
         "walk_warning": false,
         "route_steps": [
