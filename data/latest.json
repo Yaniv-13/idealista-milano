@@ -171,14 +171,14 @@
       {
         "label": "Duomo",
         "duration_min": 17,
-        "walk_mins": 7,
-        "summary": "17min via Tram 12",
+        "walk_mins": 10,
+        "summary": "17min via Tram 2",
         "passes_filter": true,
         "walk_warning": false,
         "route_steps": [
-          "\ud83d\udeb6 4min walk \u2192 Lanza",
-          "\ud83d\ude8a Tram 12 (3 stops): Lanza -> Duomo",
-          "\ud83d\udeb6 3min walk \u2192 P.za del Duomo"
+          "\ud83d\udeb6 6min walk \u2192 Via Cusani",
+          "\ud83d\ude8a Tram 2 (2 stops): Via Cusani -> Duomo",
+          "\ud83d\udeb6 4min walk \u2192 P.za del Duomo"
         ]
       },
       {
@@ -245,14 +245,14 @@
       {
         "label": "Duomo",
         "duration_min": 17,
-        "walk_mins": 7,
-        "summary": "17min via Tram 12",
+        "walk_mins": 10,
+        "summary": "17min via Tram 2",
         "passes_filter": true,
         "walk_warning": false,
         "route_steps": [
-          "\ud83d\udeb6 4min walk \u2192 Lanza",
-          "\ud83d\ude8a Tram 12 (3 stops): Lanza -> Duomo",
-          "\ud83d\udeb6 3min walk \u2192 P.za del Duomo"
+          "\ud83d\udeb6 6min walk \u2192 Via Cusani",
+          "\ud83d\ude8a Tram 2 (2 stops): Via Cusani -> Duomo",
+          "\ud83d\udeb6 4min walk \u2192 P.za del Duomo"
         ]
       },
       {
