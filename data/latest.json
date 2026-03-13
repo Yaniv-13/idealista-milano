@@ -93,15 +93,15 @@
     "commutes": [
       {
         "label": "Duomo",
-        "duration_min": 18,
-        "walk_mins": 8,
-        "summary": "18min via Metro 1",
+        "duration_min": 16,
+        "walk_mins": 7,
+        "summary": "16min via Metro 1",
         "passes_filter": true,
         "walk_warning": false,
         "route_steps": [
           "\ud83d\udeb6 4min walk \u2192 De Angeli",
           "\ud83d\ude87 Metro 1 (7 stops): De Angeli -> Duomo",
-          "\ud83d\udeb6 4min walk \u2192 P.za del Duomo"
+          "\ud83d\udeb6 3min walk \u2192 P.za del Duomo"
         ]
       },
       {
@@ -172,12 +172,12 @@
         "label": "Duomo",
         "duration_min": 17,
         "walk_mins": 10,
-        "summary": "17min via Tram 2",
+        "summary": "17min via Tram 14",
         "passes_filter": true,
         "walk_warning": false,
         "route_steps": [
           "\ud83d\udeb6 6min walk \u2192 Via Cusani",
-          "\ud83d\ude8a Tram 2 (2 stops): Via Cusani -> Duomo",
+          "\ud83d\ude8a Tram 14 (2 stops): Via Cusani -> Duomo",
           "\ud83d\udeb6 4min walk \u2192 P.za del Duomo"
         ]
       },
@@ -246,12 +246,12 @@
         "label": "Duomo",
         "duration_min": 17,
         "walk_mins": 10,
-        "summary": "17min via Tram 2",
+        "summary": "17min via Tram 14",
         "passes_filter": true,
         "walk_warning": false,
         "route_steps": [
           "\ud83d\udeb6 6min walk \u2192 Via Cusani",
-          "\ud83d\ude8a Tram 2 (2 stops): Via Cusani -> Duomo",
+          "\ud83d\ude8a Tram 14 (2 stops): Via Cusani -> Duomo",
           "\ud83d\udeb6 4min walk \u2192 P.za del Duomo"
         ]
       },
