@@ -151,154 +151,6 @@
     ]
   },
   {
-    "id": "35061736",
-    "neighborhood": "Moscova",
-    "title": "Flat / apartment in Via San Simpliciano, Nn, Moscova, Milano",
-    "url": "https://www.idealista.it/en/immobile/35061736/",
-    "price_eur": 4835,
-    "price_raw": "4,835\u20ac/month",
-    "rooms": "5",
-    "sqm": "179",
-    "bathrooms": "",
-    "floor": "2nd floor",
-    "has_lift": "Yes",
-    "pets_allowed": null,
-    "desc": "Spacious five-room apartment in Via San Simpliciano\nIn Via San Sempliciano, one of the most sought-after and central streets in Milan, near Brera, we offer for rent a spacious 175 square metre apartment on the second floor of an elegant building. The area stands out for its extraordinary centrality,",
-    "address": "Flat / apartment in Via San Simpliciano, Nn, Moscova, Milano",
-    "lat": 45.472867,
-    "lng": 9.1847506,
-    "commutes": [
-      {
-        "label": "Duomo",
-        "duration_min": 17,
-        "walk_mins": 10,
-        "summary": "17min via Tram 14",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 6min walk \u2192 Via Cusani",
-          "\ud83d\ude8a Tram 14 (2 stops): Via Cusani -> Duomo",
-          "\ud83d\udeb6 4min walk \u2192 P.za del Duomo"
-        ]
-      },
-      {
-        "label": "Canadian School",
-        "duration_min": 22,
-        "walk_mins": 16,
-        "summary": "22min via Metro 1",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 10min walk \u2192 Cairoli",
-          "\ud83d\ude87 Metro 1 (4 stops): Cairoli -> Palestro",
-          "\ud83d\udeb6 6min walk \u2192 Istituto dei ciechi di milano, Via Vivaio, 7, 20122 Milano MI"
-        ]
-      },
-      {
-        "label": "NABA University",
-        "duration_min": 22,
-        "walk_mins": 14,
-        "summary": "22min via Metro 2",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 5min walk \u2192 Lanza",
-          "\ud83d\ude87 Metro 2 (5 stops): Lanza -> Romolo",
-          "\ud83d\udeb6 10min walk \u2192 Via Carlo Darwin, 20/22, 20143 Milano MI"
-        ]
-      },
-      {
-        "label": "Malpensa Airport",
-        "duration_min": 66,
-        "walk_mins": 15,
-        "summary": "66min via Metro 2 \u2192 Heavy_Rail RE 51",
-        "passes_filter": null,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 5min walk \u2192 Lanza",
-          "\ud83d\ude87 Metro 2 (2 stops): Lanza -> Garibaldi FS",
-          "\ud83d\udeb6 2min walk \u2192 Milano Porta Garibaldi",
-          "\ud83d\ude8c Heavy_Rail RE 51 (6 stops): Milano Porta Garibaldi -> Ferno-Lonate Pozzolo",
-          "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "34703513",
-    "neighborhood": "Moscova",
-    "title": "Flat / apartment in Via San Simpliciano, Nn, Moscova, Milano",
-    "url": "https://www.idealista.it/en/immobile/34703513/",
-    "price_eur": 4835,
-    "price_raw": "4,835\u20ac/month",
-    "rooms": "5",
-    "sqm": "179",
-    "bathrooms": "",
-    "floor": "2nd floor",
-    "has_lift": "Yes",
-    "pets_allowed": null,
-    "desc": "Spacious five-room apartment in Via San Simpliciano\nIn Via San Sempliciano, one of the most sought-after and central streets in Milan, near Brera, we offer for rent a spacious 175 square metre apartment on the second floor of an elegant building. The area stands out for its extraordinary centrality,",
-    "address": "Flat / apartment in Via San Simpliciano, Nn, Moscova, Milano",
-    "lat": 45.472867,
-    "lng": 9.1847506,
-    "commutes": [
-      {
-        "label": "Duomo",
-        "duration_min": 17,
-        "walk_mins": 10,
-        "summary": "17min via Tram 14",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 6min walk \u2192 Via Cusani",
-          "\ud83d\ude8a Tram 14 (2 stops): Via Cusani -> Duomo",
-          "\ud83d\udeb6 4min walk \u2192 P.za del Duomo"
-        ]
-      },
-      {
-        "label": "Canadian School",
-        "duration_min": 22,
-        "walk_mins": 16,
-        "summary": "22min via Metro 1",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 10min walk \u2192 Cairoli",
-          "\ud83d\ude87 Metro 1 (4 stops): Cairoli -> Palestro",
-          "\ud83d\udeb6 6min walk \u2192 Istituto dei ciechi di milano, Via Vivaio, 7, 20122 Milano MI"
-        ]
-      },
-      {
-        "label": "NABA University",
-        "duration_min": 22,
-        "walk_mins": 14,
-        "summary": "22min via Metro 2",
-        "passes_filter": true,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 5min walk \u2192 Lanza",
-          "\ud83d\ude87 Metro 2 (5 stops): Lanza -> Romolo",
-          "\ud83d\udeb6 10min walk \u2192 Via Carlo Darwin, 20/22, 20143 Milano MI"
-        ]
-      },
-      {
-        "label": "Malpensa Airport",
-        "duration_min": 66,
-        "walk_mins": 15,
-        "summary": "66min via Metro 2 \u2192 Heavy_Rail RE 51",
-        "passes_filter": null,
-        "walk_warning": false,
-        "route_steps": [
-          "\ud83d\udeb6 5min walk \u2192 Lanza",
-          "\ud83d\ude87 Metro 2 (2 stops): Lanza -> Garibaldi FS",
-          "\ud83d\udeb6 2min walk \u2192 Milano Porta Garibaldi",
-          "\ud83d\ude8c Heavy_Rail RE 51 (6 stops): Milano Porta Garibaldi -> Ferno-Lonate Pozzolo",
-          "\ud83d\udeb6 9min walk \u2192 21010 Ferno, VA"
-        ]
-      }
-    ]
-  },
-  {
     "id": "34720988",
     "neighborhood": "Solari - Savona",
     "title": "Flat / apartment in Via Valparaiso, 1, Solari - Savona, Milano",
@@ -387,19 +239,18 @@
     "pets_allowed": null,
     "desc": "Square FIVE DAYS / CONSERVATORY in an elegant period building with concierge and lift, very quiet APARTMENT (220 SQM), on the first floor, comprising entrance hall, double living room, kitchen with laundry area, THREE bedrooms with THREE bathrooms (one room) is a suite with large bathroom with wardr",
     "address": "Flat / apartment in Bellini, Palestro - Monforte, Milano",
-    "lat": 45.4670966,
-    "lng": 9.2015166,
+    "lat": 45.471425,
+    "lng": 9.201948999999999,
     "commutes": [
       {
         "label": "Duomo",
-        "duration_min": 9,
-        "walk_mins": 7,
-        "summary": "9min via Metro 1",
+        "duration_min": 6,
+        "walk_mins": 3,
+        "summary": "6min via Metro 1",
         "passes_filter": true,
         "walk_warning": false,
         "route_steps": [
-          "\ud83d\udeb6 5min walk \u2192 San Babila",
-          "\ud83d\ude87 Metro 1 (1 stops): San Babila -> Duomo",
+          "\ud83d\ude87 Metro 1 (2 stops): Palestro -> Duomo",
           "\ud83d\udeb6 3min walk \u2192 P.za del Duomo"
         ]
       },
@@ -416,14 +267,13 @@
       },
       {
         "label": "NABA University",
-        "duration_min": 34,
-        "walk_mins": 16,
-        "summary": "34min via Metro 1 \u2192 Metro 2",
+        "duration_min": 30,
+        "walk_mins": 12,
+        "summary": "30min via Metro 1 \u2192 Metro 2",
         "passes_filter": true,
         "walk_warning": false,
         "route_steps": [
-          "\ud83d\udeb6 5min walk \u2192 San Babila",
-          "\ud83d\ude87 Metro 1 (4 stops): San Babila -> Cadorna FN",
+          "\ud83d\ude87 Metro 1 (5 stops): Palestro -> Cadorna FN",
           "\ud83d\udeb6 2min walk \u2192 Cadorna FN",
           "\ud83d\ude87 Metro 2 (4 stops): Cadorna FN -> Romolo",
           "\ud83d\udeb6 10min walk \u2192 Via Carlo Darwin, 20/22, 20143 Milano MI"
@@ -431,14 +281,13 @@
       },
       {
         "label": "Malpensa Airport",
-        "duration_min": 76,
-        "walk_mins": 16,
-        "summary": "76min via Metro 1 \u2192 Heavy_Rail RE 54 \u2192 Heavy_Rail RE 51",
+        "duration_min": 72,
+        "walk_mins": 11,
+        "summary": "72min via Metro 1 \u2192 Heavy_Rail RE 54 \u2192 Heavy_Rail RE 51",
         "passes_filter": null,
         "walk_warning": false,
         "route_steps": [
-          "\ud83d\udeb6 5min walk \u2192 San Babila",
-          "\ud83d\ude87 Metro 1 (4 stops): San Babila -> Cadorna FN",
+          "\ud83d\ude87 Metro 1 (5 stops): Palestro -> Cadorna FN",
           "\ud83d\udeb6 3min walk \u2192 Milan Cadorna",
           "\ud83d\ude8c Heavy_Rail RE 54 (4 stops): Milan Cadorna -> Busto Arsizio",
           "\ud83d\ude8c Heavy_Rail RE 51 (1 stops): Busto Arsizio -> Ferno-Lonate Pozzolo",
