@@ -19,14 +19,16 @@
     "commutes": [
       {
         "label": "Duomo",
-        "duration_min": 26,
-        "walk_mins": 6,
-        "summary": "26min via Tram 14",
+        "duration_min": 21,
+        "walk_mins": 7,
+        "summary": "21min via Metro 2 \u2192 Metro 1",
         "passes_filter": true,
         "walk_warning": false,
         "route_steps": [
-          "\ud83d\udeb6 3min walk \u2192 V.Le Coni Zugna Via Solari",
-          "\ud83d\ude8a Tram 14 (7 stops): V.Le Coni Zugna Via Solari -> Duomo",
+          "\ud83d\udeb6 3min walk \u2192 S. Agostino",
+          "\ud83d\ude87 Metro 2 (2 stops): S. Agostino -> Cadorna FN",
+          "\ud83d\udeb6 1min walk \u2192 Cadorna FN",
+          "\ud83d\ude87 Metro 1 (3 stops): Cadorna FN -> Duomo",
           "\ud83d\udeb6 3min walk \u2192 P.za del Duomo"
         ]
       },
